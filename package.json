@@ -1,0 +1,15 @@
+{
+  "name": "iittala",
+  "version": "0.0.1",
+  "main": "index.js",
+  "repository": "https://github.com/RikuManninen/iittala.git",
+  "author": "Riku Manninen <riku.manninen@icloud.com>",
+  "license": "",
+  "dependencies": {
+    "express": "^4.17.1"
+  },
+  "scripts": {
+    "start": "node index.js",
+    "heroku-postbuild": "cd client && yarn && yarn run build"
+  }
+}
