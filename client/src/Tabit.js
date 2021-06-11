@@ -39,9 +39,8 @@ function Tabs() {
           <h2>Content 1</h2>
           <hr />
           <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati
-            praesentium incidunt quia aspernatur quasi quidem facilis quo nihil
-            vel voluptatum?
+            <Map/>
+            
           </p>
         </div>
 
@@ -51,7 +50,9 @@ function Tabs() {
           <h2>Content 2</h2>
           <hr />
           <p>
-            <Map/>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati
+            praesentium incidunt quia aspernatur quasi quidem facilis quo nihil
+            vel voluptatum?
           </p>
         </div>
 

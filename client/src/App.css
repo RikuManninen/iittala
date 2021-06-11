@@ -16,7 +16,7 @@
 
 .App-header {
   background-color: #282c34;
-  min-height: 100vh;
+  min-height: 50vh;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -41,7 +41,7 @@
 @import url("https://unpkg.com/leaflet@1.7.1/dist/leaflet.css");
 
 .leaflet-container {
-  height: 100vh;
+  height: 100%;
 }
 
 *, ::before, ::after {
@@ -59,7 +59,7 @@ body {
   flex-direction: column;
   position: relative;
   width: 100vh;
-  height: 100vh;
+  height: 50vh;
   background: #f1f1f1;
   margin: 100px auto 0;
   word-break: break-all;
@@ -97,7 +97,7 @@ body {
   top: -5px;
   left: 50%;
   transform: translateX(-50%);
-  width: calc(100% + 2px);
+  width: calc(100% + 1px);
   height: 5px;
   background: rgb(88, 147, 241);
 }
