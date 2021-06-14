@@ -1,13 +1,13 @@
 import React, { Component, useEffect, useState } from 'react';
 import { MapContainer, TileLayer, Marker, Popup, useMap, Circle } from 'react-leaflet'
 import useGeolocation from "react-navigator-geolocation";
+import MarkerClusterGroup from 'react-leaflet-markercluster';
 
 const positions = 
 [
     [[61.08900, 24.12884], "talo 1"], 
     [[61.08940, 24.12903], "talo 2"], 
     [[61.08990, 24.12870], "talo 3"], 
-    [[61.08945, 24.12797], "talo 4"],
     [[61.08950, 24.12778], "parkkipaikka 1"],
     [[61.08878, 24.12820], "parkkipaikka 2"],
 ]
@@ -20,11 +20,13 @@ class Map extends Component {
                     attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
                     url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
                 />
+                <MarkerClusterGroup>
                 {
                 positions.map((value, index) => {
                     return <Marker position={value[0]}><Popup>{value[1]}</Popup></Marker>
                 })
                 }
+                </MarkerClusterGroup>
                 <LocationMarker />
             </MapContainer>
         )
