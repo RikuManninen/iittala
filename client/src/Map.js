@@ -1,7 +1,7 @@
 import React, { Component, useEffect, useState } from 'react';
 import { MapContainer, TileLayer, Marker, Popup, useMap, Circle } from 'react-leaflet'
 import useGeolocation from "react-navigator-geolocation";
-import "./App.css";
+
 
 const position = [61.089, 24.12884]
 
