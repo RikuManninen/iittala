@@ -69,7 +69,13 @@ class Map extends React.Component {
 
 export default geolocated({
     positionOptions: {
-        enableHighAccuracy: false,
+        enableHighAccuracy: true,
+        maximumAge: 0,
+        timeout: Infinity,
     },
-    userDecisionTimeout: 5000,
+    watchPosition: true,
+    userDecisionTimeout: null,
+    suppressLocationOnMount: false,
+    geolocationProvider: navigator.geolocation,
+    isOptimisticGeolocationEnabled: true
 })(Map);
