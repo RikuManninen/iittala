@@ -1,10 +1,9 @@
-import React, { Component, useEffect, useState } from 'react';
-import { MapContainer, TileLayer, Marker, Popup, useMap, Circle } from 'react-leaflet'
-import useGeolocation from "react-navigator-geolocation";
+import React from 'react';
+import { MapContainer, TileLayer, Marker, Popup, Circle } from 'react-leaflet'
 import MarkerClusterGroup from 'react-leaflet-markercluster';
+import { geolocated } from "react-geolocated";
 
-const positions = 
-[
+const positions = [
     [[61.08900, 24.12884], "talo 1"], 
     [[61.08940, 24.12903], "talo 2"], 
     [[61.08990, 24.12870], "talo 3"], 
@@ -12,68 +11,65 @@ const positions =
     [[61.08878, 24.12820], "parkkipaikka 2"],
 ]
 
-class Map extends Component {
+class Map extends React.Component {
     render() {
         return (
-            <MapContainer center={ positions[0][0] } zoom={ 17 } scrollWheelZoom={ true }>
-                <TileLayer
-                    attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
-                    url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-                />
-                <MarkerClusterGroup>
+            <div>
+                <MapContainer center={ positions[0][0] } zoom={ 17 } scrollWheelZoom={ true }>
+                    <TileLayer
+                        attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+                        url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+                    />
+                    <MarkerClusterGroup>
+                    {
+                    positions.map((value, index) => {
+                        return <Marker key={index} position={value[0]}><Popup>{value[1]}</Popup></Marker>
+                    })
+                    }
+                    </MarkerClusterGroup>
+
+                    {this.props.coords &&
+                        <div>
+                            <Marker position={[this.props.coords.latitude, this.props.coords.longitude]}>
+                                <Popup>You are within {this.props.coords.accuracy} meters from this point</Popup>
+                            </Marker>
+                            <Circle center={[this.props.coords.latitude, this.props.coords.longitude]} radius={this.props.coords.accuracy}></Circle>
+
+                        </div>
+                    }
+
+                </MapContainer>
+                <div className="debug-text-container">
                 {
-                positions.map((value, index) => {
-                    return <Marker position={value[0]}><Popup>{value[1]}</Popup></Marker>
-                })
+                    !this.props.isGeolocationAvailable ? (
+                        <p className="debug-text-warning">Your browser does not support Geolocation</p>
+                    ) : !this.props.isGeolocationEnabled ? (
+                        <p className="debug-text-warning">Location permission is not enabled</p>
+                    ) : this.props.coords ? (
+                        <div>
+                            <h3 className="debug-text">Geolocation has been enabled</h3>
+                            <p className="debug-text">coordinates: ({this.props.coords.latitude}, {this.props.coords.longitude})</p>
+                            <p className="debug-text"> accuracy: {this.props.coords.accuracy}</p>
+                            {this.props.coords.heading && 
+                                <p className="debug-text"> heading: {this.props.coords.heading}</p>
+                            }
+                            {this.props.coords.speed && 
+                                <p className="debug-text"> speed: {this.props.coords.speed}</p>
+                            }
+                        </div>
+                    ) : (
+                        <p className="debug-text">Getting the location data&hellip; </p>
+                    )
                 }
-                </MarkerClusterGroup>
-                <LocationMarker />
-            </MapContainer>
+                </div>
+            </div>
         )
     }
 }
 
-function LocationMarker() {
-    
-    const [position, setPosition] = useState(null);
-    const [accuracy, setAccuracy] = useState(null);
-    const map = useMap();
-
-    useEffect(() => {
-        map.locate().on("locationfound", function (e) {
-            setPosition(e.latlng);
-            setAccuracy(e.accuracy);
-        });
-    }, []);
-
-    return position === null ? null : (
-        <div>
-            <Marker position={position}>
-                <Popup>You are here</Popup>
-            </Marker>
-            <Circle center={position} radius={accuracy}></Circle>
-        </div>
-    );
-}
-
-export default () => {
-    const { isEnabled, coords } = useGeolocation();
-    const lat = coords?.latitude;
-    const long = coords?.longitude;
-    return isEnabled ? (
-        <div>
-            <div className="debug-text-container">
-                <p className="debug-text">User location: { lat + ', ' + long }</p>
-                <p className="debug-text">Accuracy: { coords?.accuracy }</p>
-            </div>
-            <Map />
-        </div>
-    ) : (
-        <div>
-            <div className="debug-text-container">
-                <p className="debug-text-warning">Location permission is not enabled</p>
-            </div>
-            <Map />
-        </div>
-    ) 
-}
+export default geolocated({
+    positionOptions: {
+        enableHighAccuracy: false,
+    },
+    userDecisionTimeout: 5000,
+})(Map);
