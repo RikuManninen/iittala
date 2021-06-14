@@ -52,13 +52,17 @@ export default () => {
     const long = coords?.longitude;
     return isEnabled ? (
         <div>
-            <h3>User location: { lat + ', ' + long }</h3>
-            <h4>Accuracy: { coords?.accuracy }</h4>
+            <div className="debug-text-container">
+                <p className="debug-text">User location: { lat + ', ' + long }</p>
+                <p className="debug-text">Accuracy: { coords?.accuracy }</p>
+            </div>
             <Map />
         </div>
     ) : (
         <div>
-            <h4>Location permission is not enabled</h4>
+            <div className="debug-text-container">
+                <p className="debug-text-warning">Location permission is not enabled</p>
+            </div>
             <Map />
         </div>
     ) 
