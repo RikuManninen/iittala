@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
 import Tabs from './Tabit';
+import React from 'react';
+import './App.scss';
+
 
 function App() {
 

@@ -1,0 +1,25 @@
+@import url("https://unpkg.com/leaflet@1.7.1/dist/leaflet.css");
+@import url("https://unpkg.com/react-leaflet-markercluster/dist/styles.min.css");
+
+.leaflet-container {
+  height: 100vh;
+}
+
+.debug-text {
+  color:blue;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  font-weight: 700;
+  &-warning {
+    @extend .debug-text;
+    color: red;
+  }
+  &-container {
+    position: absolute;
+    z-index: 9999;
+    left: 1em;
+    bottom: 0;
+  }
+}
