@@ -6,7 +6,7 @@ import {Tab, Tabs, TabList,TabPanel} from 'react-tabs';
 
 
 function Tabits() {
-  return <div >
+  return <div class='tav'>
     <Tabs >
   <TabList>
     <Tab>Map</Tab>
