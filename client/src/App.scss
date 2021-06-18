@@ -41,7 +41,7 @@
 @import url("https://unpkg.com/leaflet@1.7.1/dist/leaflet.css");
 
 .leaflet-container {
-  height: 50vh;
+  height: 100vh;
 }
 
 .react-tabs {
@@ -49,19 +49,19 @@
 }
 
 .react-tabs__tab-list {
-  border-bottom: 1px solid #aaa;
-  margin: 0 0 10px;
+  border-bottom: 0.1vh solid #aaa;
+  margin: 0 0 1vh;
   padding: 0;
 }
 
 .react-tabs__tab {
   display: inline-block;
-  border: 1px solid transparent;
+  border: 0.1vh solid transparent;
   border-bottom: none;
-  bottom: -1px;
+  bottom: -0.1vh;
   position: relative;
   list-style:none;
-  padding: 6px 12px;
+  padding: 0.6vh 1.2vh;
   cursor: pointer;
 
 }
@@ -70,7 +70,7 @@
   background: #fff;
   border-color: #aaa;
   color: black;
-  border-radius: 5px 5px 0 0;
+  border-radius: 0.5vh 0.5vh 0 0;
 }
 
 .react-tabs__tab--disabled {
@@ -79,7 +79,7 @@
 }
 
 .react-tabs__tab:focus {
-  box-shadow: 0 0 5px hsl(208, 99%, 50%);
+  box-shadow: 0 0 0.5vh hsl(208, 99%, 50%);
   border-color: hsl(208, 99%, 50%);
   outline: none;
 }
