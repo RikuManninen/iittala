@@ -1,4 +1,4 @@
-import Tabs from './Tabit';
+import Tab from './Tabit';
 import React from 'react';
 import './App.scss';
 
@@ -7,7 +7,7 @@ function App() {
 
   return (
     <div className="App">
-        <Tabs />
+        <Tab />
     </div>
     
   );
