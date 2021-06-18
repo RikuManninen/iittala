@@ -6,7 +6,12 @@
   "author": "Riku Manninen <riku.manninen@icloud.com>",
   "license": "",
   "dependencies": {
-    "express": "^4.17.1"
+    "@admin-bro/express": "^3.1.0",
+    "admin-bro": "^4.0.1",
+    "express": "^4.17.1",
+    "express-formidable": "^1.2.0",
+    "express-session": "^1.17.2",
+    "tslib": "^2.3.0"
   },
   "scripts": {
     "start": "node index.js",
