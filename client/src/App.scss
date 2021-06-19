@@ -1,6 +1,4 @@
 
-
-
 .App-logo {
   height: 40vmin;
   pointer-events: none;
@@ -44,14 +42,23 @@
   -webkit-tap-highlight-color: transparent;
 }
 
+
 .react-tabs__tab-list {
   border-bottom: 1px solid #aaa;
   margin: 0 0 1px;
-  padding: 0;
+  padding: 0 0;
+  order: 2;
+  flex-grow: 4;
 }
 
 .react-tabs__tab {
-  display: inline-block;
+  display: inline-flex;
+  flex-direction: row-reverse;
+  flex-wrap: wrap;
+  flex-flow: column wrap;
+  justify-content: flex-start;
+  align-items: flex-start;
+  align-content: flex-start;
   border: 1px solid transparent;
   border-bottom: none;
   bottom: -1px;
