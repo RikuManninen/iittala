@@ -11,6 +11,7 @@ function Tabits() {
   <TabList>
     <Tab>Map</Tab>
     <Tab>Information</Tab>
+    <Tab>Riku</Tab>
     
   </TabList>
 
@@ -24,6 +25,12 @@ function Tabits() {
   <TabPanel>
     <p>
       Tää on placeholder nyt muokkaan css vähän.
+    </p>
+    
+  </TabPanel>
+  <TabPanel>
+    <p>
+      Testiä varten
     </p>
     
   </TabPanel>
