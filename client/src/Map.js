@@ -33,6 +33,10 @@ class Map extends React.Component {
         this.setState({ showModal: false });
     }
 
+    componentWillMount() {
+        ReactModal.setAppElement('body');
+    }
+
     render() {
         return (
             <div>
