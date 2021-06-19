@@ -47,13 +47,16 @@
   border-bottom: 1px solid #aaa;
   margin: 0 0 1px;
   padding: 0 0;
-  order: 2;
+  order: 5;
   flex-grow: 4;
+  flex-basis: auto;
+  flex: none;
+  align-self: flex-start;
 }
 
 .react-tabs__tab {
   display: inline-flex;
-  flex-direction: row-reverse;
+  flex-direction: column;
   flex-wrap: wrap;
   flex-flow: column wrap;
   justify-content: flex-start;
@@ -64,7 +67,7 @@
   bottom: -1px;
   position: relative;
   list-style:none;
-  padding: 0.6vh 7vh;
+  padding: 6px 50px;
   cursor: pointer;
 
 }
