@@ -40,9 +40,7 @@
 
 @import url("https://unpkg.com/leaflet@1.7.1/dist/leaflet.css");
 
-.leaflet-container {
-  height: 93vh;
-}
+
 
 .react-tabs {
   -webkit-tap-highlight-color: transparent;
@@ -61,7 +59,7 @@
   bottom: -1px;
   position: relative;
   list-style:none;
-  padding: 6px 12px;
+  padding: 6px 100px;
   cursor: pointer;
 
 }
