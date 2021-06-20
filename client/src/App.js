@@ -1,12 +1,16 @@
+import Tav from './Tabit';
 import React from 'react';
-import Map from './Map';
 import './App.scss';
 
 
 function App() {
+
   return (
-    <Map />
+    <div className="App">
+        <Tav />
+    </div>
+    
   );
 }
-
+    
 export default App;
