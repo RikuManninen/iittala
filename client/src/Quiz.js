@@ -1,7 +1,7 @@
 
   export const quiz =  {
     "appLocale": {
-      "landingHeaderText": "<questionLength> Questions",
+      "landingHeaderText": "<questionLength> Kysymystä",
       "question": "Kysymys",
       "startQuizBtn": "Aloita kysely",
       "resultFilterAll": "Kaikki",
@@ -34,7 +34,7 @@
           "Lasia",
           "Ei mitään"
         ],
-        "correctAnswer": "1",
+        "correctAnswer": "2",
         "messageForCorrectAnswer": "Hyvä",
         "messageForInorrectAnswer": "Huono",
         "explanation": "Se on Hämeenlinnassa",
