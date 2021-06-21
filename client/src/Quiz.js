@@ -1,6 +1,15 @@
 
   export const quiz =  {
-    
+    "appLocale": {
+      "landingHeaderText": "<questionLength> Questions",
+      "question": "Kysymys",
+      "startQuizBtn": "Aloita kysely",
+      "resultFilterAll": "Kaikki",
+      "resultFilterCorrect": "Oikein",
+      "resultFilterIncorrect": "Väärin",
+      "nextQuestionBtn": "Seuraava",
+      "resultPageHeaderText": "Vastasit kaikkiin kysymyksiin <correctIndexLength> näin moni oli oikein <questionLength> kysymyksistä"
+    },
     "quizTitle": "Quiz",
     "quizSynopsis": "Iittala quiz",
     "questions": [
@@ -32,6 +41,7 @@
         "point": "1",
         "question": "Mitä iittalassa valmistetaan?"
       },
+      
     ]
     
   } 
