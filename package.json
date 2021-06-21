@@ -7,6 +7,7 @@
   "license": "",
   "dependencies": {
     "@admin-bro/express": "^3.1.0",
+    "@admin-bro/sequelize": "^1.2.1",
     "admin-bro": "^4.0.1",
     "express": "^4.17.1",
     "express-formidable": "^1.2.0",

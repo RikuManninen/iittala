@@ -21,6 +21,14 @@
   resolved "https://registry.yarnpkg.com/@admin-bro/express/-/express-3.1.0.tgz#0b8eec245ffbe1111da50b11d8dc0585252244b0"
   integrity sha512-tPEopzGkmdIJuhg/oTokZ5iB1mXCwq1uaieIFIX1cETwuw+HDY+DoH5iS7KtIdxQYdNgf0ppjX+6eSeSYAZc0w==
 
+"@admin-bro/sequelize@^1.2.1":
+  version "1.2.1"
+  resolved "https://registry.yarnpkg.com/@admin-bro/sequelize/-/sequelize-1.2.1.tgz#8a6d986577bc113dbf3b0feaebd1075051b490ef"
+  integrity sha512-Y4bmdogZTtB1V34g3d+sYUSowLHNV8I9k0Q+kmuhmTVF10xaUPGQ+y0XODsf0Dni/69QMIjNqO/Z73MhAHlVKg==
+  dependencies:
+    escape-regexp "0.0.1"
+    flat "^5.0.0"
+
 "@babel/code-frame@^7.0.0", "@babel/code-frame@^7.14.5", "@babel/code-frame@^7.8.3":
   version "7.14.5"
   resolved "https://registry.yarnpkg.com/@babel/code-frame/-/code-frame-7.14.5.tgz#23b08d740e83f49c5e59945fbf1b43e80bbf4edb"
@@ -2226,6 +2234,11 @@ escape-html@~1.0.3:
   resolved "https://registry.yarnpkg.com/escape-html/-/escape-html-1.0.3.tgz#0258eae4d3d0c0974de1c169188ef0051d1d1988"
   integrity sha1-Aljq5NPQwJdN4cFpGI7wBR0dGYg=
 
+escape-regexp@0.0.1:
+  version "0.0.1"
+  resolved "https://registry.yarnpkg.com/escape-regexp/-/escape-regexp-0.0.1.tgz#f44bda12d45bbdf9cb7f862ee7e4827b3dd32254"
+  integrity sha1-9EvaEtRbvfnLf4Yu5+SCez3TIlQ=
+
 escape-string-regexp@^1.0.5:
   version "1.0.5"
   resolved "https://registry.yarnpkg.com/escape-string-regexp/-/escape-string-regexp-1.0.5.tgz#1b61c0562190a8dff6ae3bb2cf0200ca130b86d4"
@@ -2414,6 +2427,11 @@ flat@^4.1.0:
   integrity sha512-FmTtBsHskrU6FJ2VxCnsDb84wu9zhmO3cUX2kGFb5tuwhfXxGciiT0oRY+cck35QmG+NmGh5eLz6lLCpWTqwpA==
   dependencies:
     is-buffer "~2.0.3"
+
+flat@^5.0.0:
+  version "5.0.2"
+  resolved "https://registry.yarnpkg.com/flat/-/flat-5.0.2.tgz#8ca6fe332069ffa9d324c327198c598259ceb241"
+  integrity sha512-b6suED+5/3rTpUBdG1gupIl8MPFCAMA0QXwmljLhvCUKcUvdE4gWky9zpuGCcXHOsz4J9wPGNWq6OKpmIzz3hQ==
 
 fn.name@1.x.x:
   version "1.1.0"
