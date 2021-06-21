@@ -45,7 +45,20 @@
         "point": "1",
         "question": "Mitä iittalassa valmistetaan?"
       },
-      
+      {
+      "questionType": "text",
+      "answers": [
+        "Kylän talo",
+        "Normaali talo",
+        "Naveetta"
+      ],
+      "correctAnswer": "3",
+      "messageForCorrectAnswer": "Hyvä",
+      "messageForInorrectAnswer": "Huono",
+      "point": "1",
+      "question": "Mitä iittalan museo käytettiin ennenkuin siitä tuli museo?",
+      "explanation": "Se oli naveetta"
+    },
     ]
     
   } 

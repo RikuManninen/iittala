@@ -7,7 +7,7 @@ function Quizes() {
 
     return (
       <div >
-          <Quiz quiz={quiz} continueTillCorrect={true}/>
+          <Quiz quiz={quiz} continueTillCorrect={true} shuffle={true}/>
       </div>
       
     );
