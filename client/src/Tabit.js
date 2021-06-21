@@ -12,12 +12,7 @@ function Tabits() {
     <Tab >Map</Tab>
     <Tab >Information</Tab>
     <Tab >Riku</Tab>
-    <Tab >Map</Tab>
-    <Tab >Information</Tab>
-    <Tab >Riku</Tab>
-    <Tab >Map</Tab>
-    <Tab >Information</Tab>
-    <Tab >Riku</Tab>    
+    
   </TabList>
 
   <TabPanel>
