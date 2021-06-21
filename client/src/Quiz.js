@@ -8,6 +8,10 @@
       "resultFilterCorrect": "Oikein",
       "resultFilterIncorrect": "Väärin",
       "nextQuestionBtn": "Seuraava",
+      "singleSelectionTagText": "Yksi valintainen",
+      "multipleSelectionTagText": "Monivalintainen",
+      "pickNumberOfSelection": "Valitse yksi näistä",
+      "resultPagePoint": "Sait <correctPoints> näin monesta <totalPoints>.",
       "resultPageHeaderText": "Vastasit kaikkiin kysymyksiin <correctIndexLength> näin moni oli oikein <questionLength> kysymyksistä"
     },
     "quizTitle": "Quiz",
