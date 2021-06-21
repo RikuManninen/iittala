@@ -1,5 +1,6 @@
 import { quiz } from './Quiz';
 import Quiz from 'react-quiz-component';
+import "./Quiz.scss";
 
 
 
