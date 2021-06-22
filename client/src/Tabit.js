@@ -1,6 +1,7 @@
 import "./App.scss";
 import Map from "./Map";
 import {Tab, Tabs, TabList,TabPanel} from 'react-tabs';
+import Quizes from "./Quizes";
 
 
 
@@ -13,7 +14,6 @@ function Tabits() {
     <Tab >Information</Tab>
     <Tab >Riku</Tab>
     
-        
   </TabList>
 
   <TabPanel>
@@ -25,7 +25,7 @@ function Tabits() {
   </TabPanel>
   <TabPanel>
     <p>
-      Tää on placeholder nyt muokkaan css vähän.
+      <Quizes/>
     </p>
     
   </TabPanel>
