@@ -17,8 +17,11 @@ class Map extends React.Component {
     constructor() {
         super();
         this.state = {
+            error: null,
+            isLoaded: false,
             showModal: false,
             contentLabel: "",
+            markers: []
         };
 
         this.handleOpenModal = this.handleOpenModal.bind(this);
@@ -33,11 +36,33 @@ class Map extends React.Component {
         this.setState({ showModal: false });
     }
 
-    componentWillMount() {
+    componentDidMount() {
         ReactModal.setAppElement('body');
+
+        // get marker data from marker api
+        fetch("/api/markers/")
+        .then(res => res.json())
+        .then(
+            (result) => {
+                this.setState({
+                    isLoaded: true,
+                    markers: result
+                });
+            },
+            // Note: it's important to handle errors here
+            // instead of a catch() block so that we don't swallow
+            // exceptions from actual bugs in components.
+            (error) => {
+                this.setState({
+                    isLoaded: true,
+                    error
+                });
+            }
+        )
     }
 
     render() {
+        const { error, isLoaded, markers } = this.state;
         return (
             <div>
                 <MapContainer
@@ -50,14 +75,14 @@ class Map extends React.Component {
                         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
                     />
                     <MarkerClusterGroup>
-                        {positions.map((value, index) => {
+                        {markers.map((marker, index) => {
                             return (
                                 <Marker
                                     key={index}
-                                    position={value[0]}
+                                    position={[marker.latitude, marker.longitude]}
                                     eventHandlers={{
                                         click: (e) => {
-                                            this.handleOpenModal(value[1]);
+                                            this.handleOpenModal(marker.content);
                                         },
                                     }}
                                 ></Marker>
