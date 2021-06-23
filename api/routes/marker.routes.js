@@ -10,7 +10,7 @@ module.exports = app => {
     router.get("/", markers.findAll);
   
     // Retrieve all published markers
-    router.get("/published", markers.findAllPublished);
+    //router.get("/published", markers.findAllPublished);
   
     // Retrieve a single marker with id
     router.get("/:id", markers.findOne);
@@ -22,7 +22,7 @@ module.exports = app => {
     router.delete("/:id", markers.delete);
   
     // Delete all markers
-    router.delete("/", markers.deleteAll);
+    //router.delete("/", markers.deleteAll);
   
     app.use('/api/markers', router);
-  };
+};
