@@ -7,8 +7,8 @@ const AdminBroExpress = require('@admin-bro/express')
 
 const app = express()
 
-const portAdmin = process.env.PORT || 8080
-const portApi = process.env.PORT || 5000
+const port = process.env.PORT || 5000
+const path = require('path')
 
 var corsOptions = {
     origin: "http://localhost:5001"
@@ -30,13 +30,10 @@ app.get("/api", (req, res) => {
     res.json({ message: "Welcome to iittala app api." });
 });
 
+// Serve static files from the React app
+app.use(express.static(path.join(__dirname, 'client/build')))
+
 require("./api/routes/marker.routes")(app);
-
-app.listen(portApi, () => console.log('Api is under localhost:'+ portApi +'/'))
-
-
-
-
 
 // Register adapter
 AdminBro.registerAdapter(AdminBroSequelize)
@@ -46,4 +43,4 @@ const adminBro = require('./admin')
 
 const router = AdminBroExpress.buildRouter(adminBro)
 app.use(adminBro.options.rootPath, router)
-app.listen(portAdmin, () => console.log('AdminBro is under localhost:'+ portAdmin +'/admin'))
+app.listen(port, () => console.log('Server is under localhost:'+ port))
