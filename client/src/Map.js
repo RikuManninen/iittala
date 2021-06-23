@@ -57,7 +57,7 @@ class Map extends React.Component {
         return (
             <div>
                 <MapContainer
-                    center={positions[0][0]}
+                    center={[61.089, 24.12884]}
                     zoom={17}
                     scrollWheelZoom={true}
                 >
