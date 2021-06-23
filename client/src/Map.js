@@ -11,7 +11,7 @@ class Map extends React.Component {
             error: null,
             isLoaded: false,
             showModal: false,
-            contentLabel: "",
+            modalContent: "",
             markers: []
         };
 
@@ -19,8 +19,8 @@ class Map extends React.Component {
         this.handleCloseModal = this.handleCloseModal.bind(this);
     }
 
-    handleOpenModal(contentLabel) {
-        this.setState({ showModal: true, contentLabel: contentLabel });
+    handleOpenModal(modalContent) {
+        this.setState({ showModal: true, modalContent: modalContent });
     }
 
     handleCloseModal() {
@@ -148,10 +148,10 @@ class Map extends React.Component {
                 <div>
                     <ReactModal
                         isOpen={this.state.showModal}
-                        contentLabel={this.state.contentLabel}
                         className="modal"
                         overlayClassName="modal-container"
                     >
+                        <div dangerouslySetInnerHTML={{__html: this.state.modalContent}} />
                         <button onClick={this.handleCloseModal}>x</button>
                     </ReactModal>
                 </div>
