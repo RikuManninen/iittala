@@ -15,6 +15,7 @@
     "react-leaflet": "^3.2.0",
     "react-leaflet-markercluster": "^3.0.0-rc1",
     "react-modal": "^3.14.3",
+    "react-quiz-component": "^0.3.8",
     "react-scripts": "4.0.3",
     "react-tabs": "^3.2.2",
     "web-vitals": "^1.0.1"
