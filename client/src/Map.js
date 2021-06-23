@@ -4,15 +4,6 @@ import MarkerClusterGroup from "react-leaflet-markercluster";
 import { geolocated } from "react-geolocated";
 import ReactModal from "react-modal";
 
-const positions = [
-    [[61.089, 24.12884], "talo 1"],
-    [[61.0894, 24.12903], "talo 2"],
-    [[61.0899, 24.1287], "talo 3"],
-    [[61.0895, 24.12778], "parkkipaikka 1"],
-    [[61.08878, 24.1282], "parkkipaikka 2"],
-];
-
-const props = {};
 class Map extends React.Component {
     constructor() {
         super();
