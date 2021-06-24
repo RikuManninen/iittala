@@ -24,9 +24,9 @@ const adminBro = new AdminBro({
         properties: {
           content: {
             type: 'richtext',
-            //components: {
-            //  edit: AdminBro.bundle('./editor'),
-            //}
+            components: {
+              edit: AdminBro.bundle('./tinymce'),
+            }
           }
         },
       } 
