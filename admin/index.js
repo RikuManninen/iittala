@@ -12,9 +12,12 @@ const adminBro = new AdminBro({
     softwareBrothers: false,
     logo: false,
   },
+  assets: {
+    styles: ['https://unpkg.com/leaflet@1.7.1/dist/leaflet.css'],
+  },
   resources: [
     { 
-      resource: db.Marker, 
+      resource: db.Marker,
       options: {
         icon: 'Marker',
         parent: {
@@ -27,6 +30,14 @@ const adminBro = new AdminBro({
             components: {
               edit: AdminBro.bundle('./tinymce'),
             }
+          },
+          map: {
+            isVisible: {
+              show: false, edit: true, filter: false, list: false
+            },
+            components: {
+              edit: AdminBro.bundle('./map'),
+            },
           }
         },
       } 
