@@ -38,7 +38,17 @@ const adminBro = new AdminBro({
             components: {
               edit: AdminBro.bundle('./map'),
             },
-          }
+          },
+          updatedAt: {
+            isVisible: {
+              show: true, edit: false, filter: true, list: false
+            },
+          },
+          createdAt: {
+            isVisible: {
+              show: true, edit: false, filter: true, list: false
+            },
+          },
         },
       } 
     },
