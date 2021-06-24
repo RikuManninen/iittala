@@ -23,7 +23,7 @@ function DisplayPosition({ map }) {
 const Map = (props) => {
   const { record, onChange } = props
   const [map, setMap] = useState(null)
-  const markerPos = [record.params.latitude, record.params.longitude]
+  const markerPos = record.id ? [record.params.latitude, record.params.longitude] : center
 
   return (
     <div>{map ? <DisplayPosition map={map} /> : null}
