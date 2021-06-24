@@ -15,6 +15,9 @@ const adminBro = new AdminBro({
   assets: {
     styles: ['https://unpkg.com/leaflet@1.7.1/dist/leaflet.css'],
   },
+  dashboard: {
+    component: AdminBro.bundle('./dashboard'),
+  },
   resources: [
     { 
       resource: db.Marker,
