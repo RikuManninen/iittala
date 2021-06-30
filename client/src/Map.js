@@ -1,8 +1,23 @@
 import React from "react";
+import L from "leaflet";
 import { MapContainer, TileLayer, Marker, Popup, Circle } from "react-leaflet";
 import MarkerClusterGroup from "react-leaflet-markercluster";
 import { geolocated } from "react-geolocated";
 import ReactModal from "react-modal";
+import marker from "./marker.svg"
+import user from "./user.svg"
+
+const iconMarker = L.icon({
+    iconUrl: marker,
+    iconSize: [28, 42],
+    iconAnchor: [14, 42],
+});
+
+const iconUser = L.icon({
+    iconUrl: user,
+    iconSize: [16, 16],
+    iconAnchor: [8, 8],
+});
 
 class Map extends React.Component {
     constructor() {
@@ -71,6 +86,7 @@ class Map extends React.Component {
                                 <Marker
                                     key={index}
                                     position={[marker.latitude, marker.longitude]}
+                                    icon={iconMarker}
                                     eventHandlers={{
                                         click: (e) => {
                                             this.handleOpenModal(marker.content);
@@ -84,6 +100,7 @@ class Map extends React.Component {
                     {this.props.coords && (
                         <div>
                             <Marker
+                                icon={iconUser}
                                 position={[
                                     this.props.coords.latitude,
                                     this.props.coords.longitude,
