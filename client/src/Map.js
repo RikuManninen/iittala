@@ -106,10 +106,6 @@ class Map extends React.Component {
                                     this.props.coords.longitude,
                                 ]}
                             >
-                                <Popup>
-                                    You are within {this.props.coords.accuracy}{" "}
-                                    meters from this point
-                                </Popup>
                             </Marker>
                             <Circle
                                 center={[
