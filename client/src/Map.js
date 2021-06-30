@@ -122,6 +122,7 @@ class Map extends React.Component {
                                     this.props.coords.longitude,
                                 ]}
                                 radius={this.props.coords.accuracy}
+                                stroke={false}
                             ></Circle>
                         </div>
                     )}
