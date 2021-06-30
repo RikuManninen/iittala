@@ -5,10 +5,17 @@ import MarkerClusterGroup from "react-leaflet-markercluster";
 import { geolocated } from "react-geolocated";
 import ReactModal from "react-modal";
 import marker from "./marker.svg"
+import markerVisited from "./markerVisited.svg"
 import user from "./user.svg"
 
 const iconMarker = L.icon({
     iconUrl: marker,
+    iconSize: [28, 42],
+    iconAnchor: [14, 42],
+});
+
+const iconMarkerVisited = L.icon({
+    iconUrl: markerVisited,
     iconSize: [28, 42],
     iconAnchor: [14, 42],
 });
@@ -90,6 +97,7 @@ class Map extends React.Component {
                                     eventHandlers={{
                                         click: (e) => {
                                             this.handleOpenModal(marker.content);
+                                            e.target.options.icon = iconMarkerVisited
                                         },
                                     }}
                                 ></Marker>
