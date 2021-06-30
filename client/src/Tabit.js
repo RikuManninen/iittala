@@ -10,26 +10,26 @@ function Tabits() {
   return <div class='tav'>
     <Tabs >
   <TabList>
-    <Tab id='Tab1'>Map</Tab>
-    <Tab id='Tab2'>Information</Tab>
-    <Tab id='Tab3'>Riku</Tab>
+    <Tab >Map</Tab>
+    <Tab >Information</Tab>
+    <Tab >Riku</Tab>
     
   </TabList>
 
-  <TabPanel>
+  <TabPanel id='Tab1'>
     <p>
       
       <Map/>
     </p>
     
   </TabPanel>
-  <TabPanel>
+  <TabPanel id='Tab2'>
     <p>
       <Quizes/>
     </p>
     
   </TabPanel>
-  <TabPanel>
+  <TabPanel id='Tab3'>
     <p>
       Testiä varten
     </p>
