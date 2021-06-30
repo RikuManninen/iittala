@@ -7,6 +7,7 @@ import ReactModal from "react-modal";
 import marker from "./marker.svg"
 import markerVisited from "./markerVisited.svg"
 import user from "./user.svg"
+import { LocateControl } from "./LocateControlComponent";
 
 const iconMarker = L.icon({
     iconUrl: marker,
@@ -124,6 +125,9 @@ class Map extends React.Component {
                             ></Circle>
                         </div>
                     )}
+
+                    <LocateControl />
+
                 </MapContainer>
                 <div className="debug-text-container">
                     {!this.props.isGeolocationAvailable ? (
