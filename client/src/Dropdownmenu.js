@@ -11,7 +11,7 @@ function Dropdownmenu() {
   
 
   <DropdownButton id="dropdown-item-button" title="Dropdown button">
-  <Dropdown.ItemText>Dropdown item text</Dropdown.ItemText>
+
   <Dropdown.Item as="button"><Tab1/></Dropdown.Item>
   <Dropdown.Item as="button"><Tab2/></Dropdown.Item>
   <Dropdown.Item as="button"><Tab3/></Dropdown.Item>
