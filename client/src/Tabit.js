@@ -10,9 +10,9 @@ function Tabits() {
   return <div class='tav'>
     <Tabs >
   <TabList>
-    <Tab >Map</Tab>
-    <Tab >Information</Tab>
-    <Tab >Riku</Tab>
+    <Tab id='Tab1'>Map</Tab>
+    <Tab id='Tab2'>Information</Tab>
+    <Tab id='Tab3'>Riku</Tab>
     
   </TabList>
 
