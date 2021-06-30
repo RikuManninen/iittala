@@ -1,6 +1,6 @@
 import React from "react";
 import L from "leaflet";
-import { MapContainer, TileLayer, Marker, Popup, Circle } from "react-leaflet";
+import { MapContainer, TileLayer, Marker, Circle } from "react-leaflet";
 import MarkerClusterGroup from "react-leaflet-markercluster";
 import { geolocated } from "react-geolocated";
 import ReactModal from "react-modal";
@@ -75,7 +75,7 @@ class Map extends React.Component {
     }
 
     render() {
-        const { error, isLoaded, markers } = this.state;
+        const { markers } = this.state;
         return (
             <div>
                 <MapContainer
