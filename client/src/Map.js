@@ -9,6 +9,7 @@ import markerVisited from "./markerVisited.svg"
 import user from "./user.svg"
 import { LocateControl } from "./LocateControlComponent";
 import { Route, BrowserRouter as Router } from "react-router-dom";
+import ArrowBackIcon from '@material-ui/icons/ArrowBack';
 
 const iconMarker = L.icon({
     iconUrl: marker,
@@ -101,6 +102,7 @@ class Map extends React.Component {
                                             click: (e) => {
                                                 this.handleOpenModal(marker.content);
                                                 e.target.options.icon = iconMarkerVisited
+                                                console.log(marker.content)
                                             },
                                         }}
                                     ></Marker>
@@ -187,7 +189,7 @@ class Map extends React.Component {
                         overlayClassName="modal-container"
                     >
                         <div dangerouslySetInnerHTML={{__html: this.state.modalContent}} />
-                        <button onClick={this.handleCloseModal}>x</button>
+                        <button onClick={this.handleCloseModal}><ArrowBackIcon/></button>
                     </ReactModal>
                 </div>
             </div>

@@ -1,6 +1,31 @@
 @import url("https://unpkg.com/leaflet@1.7.1/dist/leaflet.css");
 @import url("https://unpkg.com/react-leaflet-markercluster/dist/styles.min.css");
 
+button {
+  display: inline-block;
+  border: none;
+  padding: 1em;
+  margin: 0;
+  text-decoration: none;
+  color: #666;
+  background: transparent;
+  box-sizing: border-box;
+  font-family: sans-serif;
+  font-size: 1rem;
+  cursor: pointer;
+  text-align: center;
+  transition: background 250ms ease-in-out, transform 150ms ease;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  &.white {
+    color: #fff;
+  }
+}
+
+button:active {
+  transform: scale(0.99);
+}
+
 .leaflet-container {
   height: 93vh;
 }
@@ -29,26 +54,27 @@
 .modal {
   z-index: 9000;
   background: #fff;
-  height: calc(100vh - 25em);
-  width: calc(100vw - 5em);
+  min-height: 100%;
+  width: 100%;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
   position: absolute;
-  border-radius: 1em;
-  margin: auto;
-  padding: 1em;
-  box-shadow: 1px 1px 2px rgb(69, 69, 69);
-  max-width: 1280px;
-  overflow: scroll;
-  &::before {
-    content: attr(aria-label);
-    font-size: 1.5em;
-  }
+  padding: 4em 2em 2em 2em;
+  color: #5B5053;
+  box-sizing: border-box;
   & button {
     position: absolute;
-    right: 1em;
+    left: 1em;
     top: 1em;
+  }
+  & h1 img {
+    margin: -3em -2em .5em -2em;
+    width: calc(100% + 4em);
+  }
+  & a {
+    color: #DA0037;
+    text-decoration: none;
   }
 }
