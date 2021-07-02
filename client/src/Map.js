@@ -8,6 +8,7 @@ import marker from "./marker.svg"
 import markerVisited from "./markerVisited.svg"
 import user from "./user.svg"
 import { LocateControl } from "./LocateControlComponent";
+import { Route, BrowserRouter as Router } from "react-router-dom";
 
 const iconMarker = L.icon({
     iconUrl: marker,
@@ -91,17 +92,25 @@ class Map extends React.Component {
                     <MarkerClusterGroup>
                         {markers.map((marker, index) => {
                             return (
-                                <Marker
-                                    key={index}
-                                    position={[marker.latitude, marker.longitude]}
-                                    icon={iconMarker}
-                                    eventHandlers={{
-                                        click: (e) => {
-                                            this.handleOpenModal(marker.content);
-                                            e.target.options.icon = iconMarkerVisited
-                                        },
-                                    }}
-                                ></Marker>
+                                <>
+                                    <Marker
+                                        key={index}
+                                        position={[marker.latitude, marker.longitude]}
+                                        icon={iconMarker}
+                                        eventHandlers={{
+                                            click: (e) => {
+                                                this.handleOpenModal(marker.content);
+                                                e.target.options.icon = iconMarkerVisited
+                                            },
+                                        }}
+                                    ></Marker>
+                                    <Router>
+                                        <Route exact path={'/'+index} render={() => {
+                                                alert(marker.content);
+                                            }
+                                        }/>
+                                    </Router>
+                                </>
                             );
                         })}
                     </MarkerClusterGroup>
