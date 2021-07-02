@@ -13,7 +13,7 @@ Control.Locate = Control.extend({
             .addListener(controlDiv, 'click', DomEvent.stopPropagation)
             .addListener(controlDiv, 'click', DomEvent.preventDefault)
             .addListener(controlDiv, 'click', function() {
-                console.log('hello click')
+                map.flyTo([60.7377, 24.7867], 18)
             });
 
         var controlUI = DomUtil.create('a', 'leaflet-control-locate', controlDiv);
