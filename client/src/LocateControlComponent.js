@@ -1,5 +1,7 @@
 import { createControlComponent } from "@react-leaflet/core";
 import { Control, DomUtil, DomEvent } from "leaflet";
+import myLocation from "./myLocation.svg"
+import marker from "./marker.svg"
 
 Control.Locate = Control.extend({
     options: {
@@ -8,7 +10,7 @@ Control.Locate = Control.extend({
 
     onAdd: function(map) {
 
-        var controlDiv = DomUtil.create('div', 'leaflet-locate-toolbar leaflet-bar');
+        const controlDiv = DomUtil.create('div', 'leaflet-control-locate-toolbar leaflet-bar');
         DomEvent
             .addListener(controlDiv, 'click', DomEvent.stopPropagation)
             .addListener(controlDiv, 'click', DomEvent.preventDefault)
@@ -16,10 +18,15 @@ Control.Locate = Control.extend({
                 map.flyTo([60.7377, 24.7867], 18)
             });
 
-        var controlUI = DomUtil.create('a', 'leaflet-control-locate', controlDiv);
+        const controlUI = DomUtil.create('a', 'leaflet-control-locate', controlDiv);
         controlUI.title = 'Locate user';
         controlUI.href = '#';
-        controlUI.text = 'hello'
+
+        const img = DomUtil.create("img", 'leaflet-control-locate-icon', controlUI);
+        img.src = myLocation;
+        img.style.width = "30px";
+        img.style.height = "30px";
+        
         return controlDiv;
     },
 
