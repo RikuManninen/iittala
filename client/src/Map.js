@@ -7,6 +7,7 @@ import ReactModal from "react-modal";
 import marker from "./marker.svg"
 import markerVisited from "./markerVisited.svg"
 import user from "./user.svg"
+import markerNear from "./markerNear.svg"
 import { LocateControl } from "./LocateControlComponent";
 import { Route, BrowserRouter as Router } from "react-router-dom";
 import ArrowBackIcon from '@material-ui/icons/ArrowBack';
@@ -20,6 +21,12 @@ const iconMarker = L.icon({
 
 const iconMarkerVisited = L.icon({
     iconUrl: markerVisited,
+    iconSize: [28, 42],
+    iconAnchor: [14, 42],
+});
+
+const iconMarkerNear = L.icon({
+    iconUrl: markerNear,
     iconSize: [28, 42],
     iconAnchor: [14, 42],
 });
@@ -104,7 +111,13 @@ class Map extends React.Component {
                                         <Marker
                                             key={index}
                                             position={markerLatLng}
-                                            icon={iconMarker}
+                                            icon={
+                                                distance > 20 ? (
+                                                    iconMarker
+                                                ):(
+                                                    iconMarkerNear
+                                                )
+                                            }
                                             eventHandlers={{
                                                 click: (e) => {
                                                     this.handleOpenModal(marker.content);
