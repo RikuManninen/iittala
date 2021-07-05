@@ -1,15 +1,17 @@
 import React from "react";
 import L from "leaflet";
-import { MapContainer, TileLayer, Marker, Circle } from "react-leaflet";
+import { MapContainer, TileLayer, Marker, Circle, Polyline, LayersControl, Tooltip } from "react-leaflet";
 import MarkerClusterGroup from "react-leaflet-markercluster";
 import { geolocated } from "react-geolocated";
 import ReactModal from "react-modal";
 import marker from "./marker.svg"
 import markerVisited from "./markerVisited.svg"
 import user from "./user.svg"
+import markerNear from "./markerNear.svg"
 import { LocateControl } from "./LocateControlComponent";
 import { Route, BrowserRouter as Router } from "react-router-dom";
 import ArrowBackIcon from '@material-ui/icons/ArrowBack';
+import GeometryUtil from 'leaflet-geometryutil'
 
 const iconMarker = L.icon({
     iconUrl: marker,
@@ -19,6 +21,12 @@ const iconMarker = L.icon({
 
 const iconMarkerVisited = L.icon({
     iconUrl: markerVisited,
+    iconSize: [28, 42],
+    iconAnchor: [14, 42],
+});
+
+const iconMarkerNear = L.icon({
+    iconUrl: markerNear,
     iconSize: [28, 42],
     iconAnchor: [14, 42],
 });
@@ -90,32 +98,53 @@ class Map extends React.Component {
                         attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
                         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
                     />
-                    <MarkerClusterGroup>
-                        {markers.map((marker, index) => {
-                            return (
-                                <>
-                                    <Marker
-                                        key={index}
-                                        position={[marker.latitude, marker.longitude]}
-                                        icon={iconMarker}
-                                        eventHandlers={{
-                                            click: (e) => {
-                                                this.handleOpenModal(marker.content);
-                                                e.target.options.icon = iconMarkerVisited
-                                                console.log(marker.content)
-                                            },
-                                        }}
-                                    ></Marker>
-                                    <Router>
-                                        <Route exact path={'/'+index} render={() => {
-                                                alert(marker.content);
+                    <LayersControl position="topright">
+                        <MarkerClusterGroup>
+                            {markers.map((marker, index) => {
+                                const markerLatLng = [marker.latitude, marker.longitude]
+                                let distance = null
+                                if(this.props.coords) {
+                                    distance = GeometryUtil.length(L.polyline([[this.props.coords.latitude, this.props.coords.longitude], markerLatLng]))
+                                }
+                                return (
+                                    <>
+                                        <Marker
+                                            key={index}
+                                            position={markerLatLng}
+                                            icon={
+                                                distance > 20 ? (
+                                                    iconMarker
+                                                ):(
+                                                    iconMarkerNear
+                                                )
                                             }
-                                        }/>
-                                    </Router>
-                                </>
-                            );
-                        })}
-                    </MarkerClusterGroup>
+                                            eventHandlers={{
+                                                click: (e) => {
+                                                    this.handleOpenModal(marker.content);
+                                                    e.target.options.icon = iconMarkerVisited
+                                                },
+                                            }}
+                                        ></Marker>
+                                        <Router>
+                                            <Route exact path={'/'+index} render={() => {
+                                                    alert(marker.content);
+                                                }
+                                            }/>
+                                        </Router>
+                                        <LayersControl.Overlay name={"Distance to marker " + (index+1)}>
+                                            {this.props.coords && (
+                                                <Polyline color="red" positions={[[this.props.coords.latitude, this.props.coords.longitude], markerLatLng]}>
+                                                    <Tooltip sticky>
+                                                        {'Distance: ' + distance + ' meters'}
+                                                    </Tooltip>
+                                                </Polyline>
+                                            )}
+                                        </LayersControl.Overlay>
+                                    </>
+                                );
+                            })}
+                        </MarkerClusterGroup>
+                    </LayersControl>
 
                     {this.props.coords && (
                         <div>
