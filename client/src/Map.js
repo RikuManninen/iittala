@@ -189,7 +189,7 @@ class Map extends React.Component {
                         overlayClassName="modal-container"
                     >
                         <div dangerouslySetInnerHTML={{__html: this.state.modalContent}} />
-                        <button onClick={this.handleCloseModal}><ArrowBackIcon/></button>
+                        <button class="btn-modal-close" onClick={this.handleCloseModal}><ArrowBackIcon/></button>
                     </ReactModal>
                 </div>
             </div>

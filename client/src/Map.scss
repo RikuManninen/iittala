@@ -86,3 +86,14 @@ button:active {
     text-decoration: none;
   }
 }
+
+.btn {
+  &-modal {
+    &-close {
+      background: #DA0037;
+      border-radius: 100%;
+      color: #fff;
+      height: 56px;
+    }
+  }
+}
