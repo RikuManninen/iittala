@@ -112,7 +112,7 @@ class Map extends React.Component {
                                             key={index}
                                             position={markerLatLng}
                                             icon={
-                                                distance > 20 ? (
+                                                distance > 20 || !distance ? (
                                                     iconMarker
                                                 ):(
                                                     iconMarkerNear
