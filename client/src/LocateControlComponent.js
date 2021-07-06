@@ -24,7 +24,7 @@ Control.Locate = Control.extend({
 
         const img = DomUtil.create("img", 'leaflet-control-locate-icon', controlUI);
         img.src = myLocation;
-        img.style.width = "30px";
+        img.style.width = "25px";
         img.style.height = "30px";
         
         return controlDiv;
