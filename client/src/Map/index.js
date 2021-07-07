@@ -12,6 +12,7 @@ const Map = () => {
 				center={[61.089, 24.12884]}
 				zoom={17}
 				scrollWheelZoom={true}
+				attributionControl={false}
 			>
 				<TileLayer
 					attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
