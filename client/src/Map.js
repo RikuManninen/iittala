@@ -2,7 +2,6 @@ import React from "react";
 import L from "leaflet";
 import { MapContainer, TileLayer, Marker, Circle, Polyline, LayersControl, Tooltip } from "react-leaflet";
 import MarkerClusterGroup from "react-leaflet-markercluster";
-import { geolocated } from "react-geolocated";
 import ReactModal from "react-modal";
 import marker from "./marker.svg"
 import markerVisited from "./markerVisited.svg"
@@ -226,15 +225,4 @@ class Map extends React.Component {
     }
 }
 
-export default geolocated({
-    positionOptions: {
-        enableHighAccuracy: true,
-        maximumAge: 0,
-        timeout: Infinity,
-    },
-    watchPosition: true,
-    userDecisionTimeout: null,
-    suppressLocationOnMount: false,
-    geolocationProvider: navigator.geolocation,
-    isOptimisticGeolocationEnabled: true,
-})(Map);
+export default Map;
