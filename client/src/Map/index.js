@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import { MapContainer, TileLayer } from "react-leaflet";
 import { LocateControl } from "./LocateControlComponent";
 import Markers from "./Markers";
@@ -23,8 +23,8 @@ const Map = () => {
 
         <Markers coords={ location.coordinates } />
         <UserLocation coords={ location.coordinates } />
-        
-				<LocateControl />
+        {location.loaded && <LocateControl coords={ [location.coordinates.latitude, location.coordinates.longitude] } />}
+
 			</MapContainer>
 
       <div className="debug-text-container">
