@@ -31,7 +31,7 @@ button:active {
 }
 
 .debug-text {
-  color:blue;
+  color:rgb(50, 50, 255);
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
@@ -47,8 +47,17 @@ button:active {
   &-container {
     position: absolute;
     z-index: 8000;
-    left: 1em;
+    left: 0;
     bottom: 0;
+    background: rgba(255, 255, 255, 0.666);
+    width: 100%;
+    padding: 1em;
+  }
+  @at-root {
+    h1#{&} {
+      font-size: 1.2em;
+      color:rgb(10, 10, 158);
+    }
   }
 }
 
