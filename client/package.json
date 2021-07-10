@@ -10,6 +10,7 @@
     "@testing-library/user-event": "^12.1.10",
     "leaflet": "^1.7.1",
     "leaflet-geometryutil": "^0.10.0",
+    "leaflet-rotatedmarker": "^0.2.0",
     "node-sass": "^6.0.0",
     "react": "^17.0.2",
     "react-bootstrap": "^1.6.1",
