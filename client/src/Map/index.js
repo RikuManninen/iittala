@@ -25,7 +25,7 @@ const Map = () => {
 				/>
 
         <Markers coords={ location.coordinates } />
-        <UserLocation coords={ location.coordinates } />
+        <UserLocation coords={ location.coordinates } alpha={ deviceOrientation.alpha } />
         {location.loaded && <LocateControl coords={ [location.coordinates.latitude, location.coordinates.longitude] } />}
 
         <DebugText location={ location } orientation={ deviceOrientation } />
