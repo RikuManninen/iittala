@@ -6,10 +6,12 @@ import UserLocation from "./UserLocation";
 import DebugText from './DebugText';
 import useGeolocation from "./useGeolocation";
 import useDeviceOrientation from 'react-hook-device-orientation'
+import useCompass from './useCompass'
 
 const Map = () => {
   const location = useGeolocation()
   const deviceOrientation = useDeviceOrientation()
+  const compassAlpha = useCompass()
 
 	return (
 		<>
@@ -25,7 +27,7 @@ const Map = () => {
 				/>
 
         <Markers coords={ location.coordinates } />
-        <UserLocation coords={ location.coordinates } alpha={ deviceOrientation.alpha } />
+        <UserLocation coords={ location.coordinates } alpha={ compassAlpha } />
         {location.loaded && <LocateControl coords={ [location.coordinates.latitude, location.coordinates.longitude] } />}
 
         <DebugText location={ location } orientation={ deviceOrientation } />
