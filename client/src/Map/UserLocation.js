@@ -8,7 +8,7 @@ const UserLocation = (props) => {
   const compassMarker = useRef()
 
   useEffect(() => {
-    {props.alpha && compassMarker.current.setRotationAngle(props.alpha)}
+    {props.compassHeading && compassMarker.current.setRotationAngle(props.compassHeading)}
   })
 
   return (
@@ -30,7 +30,7 @@ const UserLocation = (props) => {
           ]}
         >
         </Marker>
-        {props.alpha && 
+        {props.compassHeading && 
           <Marker
             icon={iconCompass}
             ref={compassMarker}
