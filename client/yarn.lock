@@ -9660,6 +9660,11 @@ qs@~6.5.2:
   resolved "https://registry.yarnpkg.com/qs/-/qs-6.5.2.tgz#cb3ae806e8740444584ef154ce8ee98d403f3e36"
   integrity sha512-N5ZAX4/LxJmF+7wN74pUD6qAh9/wnvdQcjq9TZjevvXzSUo7bfmw91saqMjzGS2xq91/odN2dW/WOl7qQHNDGA==
 
+quaternion-to-euler@^0.5.0:
+  version "0.5.0"
+  resolved "https://registry.yarnpkg.com/quaternion-to-euler/-/quaternion-to-euler-0.5.0.tgz#3733e47708a68cc467f3fd98a34208a152e1678a"
+  integrity sha512-viHK7joGOxXp2u43gjFpAc0ebY34BVkVX5rSGcvYxPhU8Rb0utsMjY/1T2cuIotd97+WnXPmaROdRCHhiw+ibw==
+
 query-string@^4.1.0:
   version "4.3.4"
   resolved "https://registry.yarnpkg.com/query-string/-/query-string-4.3.4.tgz#bbb693b9ca915c232515b228b1a02b609043dbeb"
