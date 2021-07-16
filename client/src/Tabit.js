@@ -2,6 +2,7 @@ import "./App.scss";
 import Map from "./Map";
 import {Tab, Tabs, TabList,TabPanel} from 'react-tabs';
 import Quizes from "./Quizes";
+import Ar from "./Ar";
 
 
 
@@ -29,11 +30,8 @@ function Tabits() {
     </p>
     
   </TabPanel>
-  <TabPanel>
-    <p>
-      Testiä varten
-    </p>
-    
+  <TabPanel style={{height: 'calc(100vh - 63px)'}}>
+    <Ar />
   </TabPanel>
   
 </Tabs>
