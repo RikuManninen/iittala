@@ -61,6 +61,10 @@ button:active {
   }
 }
 
+.ReactModal__Body--open {
+  overflow-x: hidden;
+}
+
 .modal {
   z-index: 9000;
   background: #fff;
