@@ -13,12 +13,14 @@ const Markers = (props) => {
 
 	const [modalIsOpen, setModalIsOpen] = useState(false);
 	const [modalContent, setModalContent] = useState("");
+	const [modalMarkerId, setModalMarkerId] = useState("");
 
 	const userLatLng = [props.coords.latitude, props.coords.longitude];
 
-	const openModal = (content) => {
+	const openModal = (content, id) => {
 		setModalIsOpen(true);
 		setModalContent(content);
+		setModalMarkerId(id);
 	}
 	const closeModal = () => setModalIsOpen(false);
 
@@ -50,7 +52,7 @@ const Markers = (props) => {
                 eventHandlers={{
                   click: (e) => {
                     e.target.options.icon = iconMarkerVisited
-                    openModal(marker.content)
+                    openModal(marker.content, marker.id)
                   },
                 }}
               ></Marker>
@@ -70,7 +72,7 @@ const Markers = (props) => {
           );
         })}
       </MarkerClusterGroup>
-      <Modal modalIsOpen={ modalIsOpen } closeModal={ closeModal } content={ modalContent }/>
+      <Modal modalIsOpen={ modalIsOpen } closeModal={ closeModal } content={ modalContent } markerId={ modalMarkerId }/>
     </LayersControl>
 	)
 }
