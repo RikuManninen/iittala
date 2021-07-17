@@ -27,7 +27,7 @@ button:active {
 }
 
 .leaflet-container {
-  height: 93vh;
+  height: calc(100vh - 63px - 2em);
 }
 
 .debug-text {
