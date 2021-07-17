@@ -1,5 +1,6 @@
 const express = require('express')
 const dotenv = require('dotenv').config()
+const helmet = require("helmet");
 const cors = require("cors");
 
 const AdminBro = require('admin-bro')
@@ -17,6 +18,8 @@ var corsOptions = {
 
 const db = require("./models");
 db.sequelize.sync();
+
+app.use(helmet());
 
 app.use(cors(corsOptions));
 
