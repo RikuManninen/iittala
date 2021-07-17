@@ -7,6 +7,7 @@ import { iconMarker, iconMarkerNear, iconMarkerVisited } from './Icons'
 import { Route, BrowserRouter as Router } from "react-router-dom";
 import GeometryUtil from 'leaflet-geometryutil'
 import L from 'leaflet'
+import ReactModal from 'react-modal';
 
 const Markers = (props) => {
 	const [markers, setMarkers] = useState([]);
@@ -30,6 +31,7 @@ const Markers = (props) => {
 			setMarkers(markers);
 		}
 		fetchData();
+    ReactModal.setAppElement('body');
 	}, [])
 
 	return (
