@@ -32,7 +32,10 @@ const adminBro = new AdminBro({
             type: 'richtext',
             components: {
               edit: AdminBro.bundle('./tinymce'),
-            }
+            },
+            isVisible: {
+              show: true, edit: true, filter: false, list: false
+            },
           },
           map: {
             isVisible: {
@@ -50,6 +53,11 @@ const adminBro = new AdminBro({
           createdAt: {
             isVisible: {
               show: true, edit: false, filter: true, list: false
+            },
+          },
+          name: {
+            isVisible: {
+              show: false, edit: true, filter: true, list: true
             },
           },
         },
