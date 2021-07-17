@@ -81,7 +81,6 @@ button:active {
   outline: none;
   & button {
     position: absolute;
-    left: 1em;
     top: 1em;
   }
   & h1 img {
@@ -99,15 +98,30 @@ button:active {
     color: #b9242e;
     text-decoration: none;
   }
+  &-game-container {
+    background: #000; 
+    height: calc(100% + 5em);
+    margin: -4em -2em;
+  }
 }
 
 .btn {
   &-modal {
-    &-close {
+    &-left {
       background: #b9242e;
       border-radius: 100%;
       color: #fff;
       height: 56px;
+      left: 1em;
+    }
+    &-right {
+      @extend .btn-modal-left;
+      left: auto;
+      right: 1em;
     }
   }
+}
+
+.zappar-permission-request {
+  z-index: 9001!important;
 }

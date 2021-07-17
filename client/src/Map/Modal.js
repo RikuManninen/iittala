@@ -1,9 +1,19 @@
-import React from 'react';
+import React, { useState } from 'react';
 import ReactModal from 'react-modal';
 import ArrowBackIcon from '@material-ui/icons/ArrowBack';
-
+import VideogameAssetIcon from '@material-ui/icons/VideogameAsset';
 
 const Modal = (props) => {
+
+	const [gameIsOpen, setGameIsOpen] = useState(false);
+
+	const openGame = () => {
+		setGameIsOpen(true)
+	}	
+  
+  const closeGame = () => {
+		setGameIsOpen(false)
+	}
 
 	return(
 		<ReactModal
@@ -11,8 +21,19 @@ const Modal = (props) => {
 			className="modal"
 			overlayClassName="modal-container"
 		>
-			<div dangerouslySetInnerHTML={{ __html: props.content }} />
-			<button class="btn-modal-close" onClick={ props.closeModal }><ArrowBackIcon/></button>
+    {!gameIsOpen ? 
+      <>
+        <div dangerouslySetInnerHTML={{ __html: props.content }} />
+        <button className="btn-modal-left" onClick={ props.closeModal }><ArrowBackIcon/></button>
+        <button className="btn-modal-right" onClick={ openGame }><VideogameAssetIcon/></button>
+      </>
+    : 
+      <>
+        <div className="modal-game-container">
+        </div>
+        <button className="btn-modal-left" onClick={ closeGame }><ArrowBackIcon/></button>
+      </>
+    }
 		</ReactModal>
 	)
 
