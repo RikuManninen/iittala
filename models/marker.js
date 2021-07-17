@@ -16,7 +16,8 @@ module.exports = (sequelize, DataTypes) => {
   Marker.init({
     latitude: DataTypes.DECIMAL,
     longitude: DataTypes.DECIMAL,
-    content: DataTypes.TEXT
+    content: DataTypes.TEXT,
+    name: DataTypes.STRING
   }, {
     sequelize,
     modelName: 'Marker',
