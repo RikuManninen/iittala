@@ -10,6 +10,7 @@
     "@admin-bro/sequelize": "^1.2.1",
     "@tinymce/tinymce-react": "^3.12.6",
     "admin-bro": "^4.0.1",
+    "api-key-auth": "^0.2.3",
     "cors": "^2.8.5",
     "dotenv": "^10.0.0",
     "express": "^4.17.1",
