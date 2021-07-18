@@ -10,7 +10,7 @@ const FaceMeshMaterial = () => {
   return <meshStandardMaterial transparent map={faceMapTexture} />;
 };
 
-export default () => {
+const Ar = () => {
   const trackerGroup = useRef()
   return (
     <>
@@ -30,3 +30,5 @@ export default () => {
     </>
   );
 }
+
+export default Ar
