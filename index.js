@@ -19,7 +19,9 @@ var corsOptions = {
 const db = require("./models");
 db.sequelize.sync();
 
-app.use(helmet());
+app.use(helmet({
+    contentSecurityPolicy: false,
+}));
 
 app.use(cors(corsOptions));
 
