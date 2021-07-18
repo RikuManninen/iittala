@@ -7,6 +7,7 @@ import DebugText from './DebugText';
 import useGeolocation from "./useGeolocation";
 import useDeviceOrientation from 'react-hook-device-orientation'
 import useCompass from './useCompass'
+import L from 'leaflet'
 
 const Map = () => {
   const location = useGeolocation()
@@ -20,6 +21,9 @@ const Map = () => {
 				zoom={15}
 				scrollWheelZoom={true}
 				attributionControl={false}
+				maxBounds={L.latLngBounds([[61.086739, 24.123656], [61.092388, 24.146800]])}
+				maxBoundsViscosity={1.0}
+				minZoom={14}
 			>
 				<TileLayer
 					attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
