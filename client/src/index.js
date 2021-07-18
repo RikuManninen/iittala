@@ -5,7 +5,7 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 
 const host = "iittala.herokuapp.com" || "herokuapp.com";
-if ((host == window.location.host) && (window.location.protocol != "https:")){
+if ((host === window.location.host) && (window.location.protocol !== "https:")){
     window.location.protocol = "https";
 }
 
