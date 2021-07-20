@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Marker, Polyline, Tooltip, LayersControl } from 'react-leaflet';
+import { Marker, Polyline, Tooltip, LayersControl, LayerGroup } from 'react-leaflet';
 import MarkerClusterGroup from "react-leaflet-markercluster";
 import { getMarkerInfo } from "../Api";
 import Modal from './Modal';
@@ -35,7 +35,7 @@ const Markers = (props) => {
 	}, [])
 
 	return (
-    <LayersControl>
+    <>
       <MarkerClusterGroup>
         {markers.map((marker, index) => {
           const markerLatLng = [marker.latitude, marker.longitude]
@@ -63,19 +63,29 @@ const Markers = (props) => {
                   openModal(marker.content)
                 }}/>
               </Router>
-              <LayersControl.Overlay name={`Distance to "${marker.name}"`}>
+            </div>
+          );
+        })}
+      </MarkerClusterGroup>
+      <LayersControl>
+        <LayersControl.Overlay name={`Show marker distances`}>
+          <LayerGroup>
+            {markers.map((marker, index) => {
+              const markerLatLng = [marker.latitude, marker.longitude]
+              const distance = GeometryUtil.length(L.polyline([markerLatLng, userLatLng]))
+              return (
                 <Polyline color="red" positions={[userLatLng, markerLatLng]}>
                   <Tooltip sticky>
                     {'Distance ' + distance + ' meters.'}
                   </Tooltip>
                 </Polyline>
-              </LayersControl.Overlay>
-            </div>
-          );
-        })}
-      </MarkerClusterGroup>
+              )
+            })}
+          </LayerGroup>
+        </LayersControl.Overlay>
+      </LayersControl>
       <Modal modalIsOpen={ modalIsOpen } closeModal={ closeModal } content={ modalContent } markerId={ modalMarkerId }/>
-    </LayersControl>
+    </>
 	)
 }
 
