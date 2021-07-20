@@ -8,6 +8,8 @@ const UserLocation = (props) => {
 
   const compassMarker = useRef()
 
+  const location = [props.coords.latitude, props.coords.longitude]
+
   useEffect(() => {
     props.alpha && compassMarker.current.setRotationAngle(-props.alpha)
   })
@@ -17,10 +19,7 @@ const UserLocation = (props) => {
       <div>
         <LayersControl.Overlay checked name={"Show accuracy"}>
           <Circle
-            center={[
-              props.coords.latitude,
-              props.coords.longitude,
-            ]}
+            center={location}
             radius={props.coords.accuracy}
             stroke={false}
           />
@@ -28,10 +27,7 @@ const UserLocation = (props) => {
         <LayersControl.Overlay checked name={"Show geolocation"}>
           <Marker
             icon={iconUser}
-            position={[
-              props.coords.latitude,
-              props.coords.longitude,
-            ]}
+            position={location}
             zIndexOffset={1000}
           />
         </LayersControl.Overlay>
@@ -40,10 +36,7 @@ const UserLocation = (props) => {
             <Marker
               icon={iconCompass}
               ref={compassMarker}
-              position={[
-                props.coords.latitude,
-                props.coords.longitude,
-              ]}
+              position={location}
             />
           </LayersControl.Overlay>
         }
