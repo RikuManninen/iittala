@@ -28,6 +28,7 @@ const UserLocation = (props) => {
             props.coords.latitude,
             props.coords.longitude,
           ]}
+          zIndexOffset={1000}
         >
         </Marker>
         {props.alpha && 
