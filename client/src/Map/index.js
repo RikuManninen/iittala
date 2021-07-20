@@ -1,5 +1,5 @@
-import React, { useEffect, useRef } from "react";
-import { MapContainer, TileLayer, LayersControl } from "react-leaflet";
+import React from "react";
+import { MapContainer, TileLayer } from "react-leaflet";
 import { LocateControl } from "./LocateControlComponent";
 import Markers from "./Markers";
 import UserLocation from "./UserLocation";

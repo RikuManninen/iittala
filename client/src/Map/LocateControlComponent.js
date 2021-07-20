@@ -1,4 +1,3 @@
-import { useState } from 'react'
 import { createControlComponent } from "@react-leaflet/core";
 import { Control, DomUtil, DomEvent } from "leaflet";
 import myLocation from "./svg/myLocation.svg"
