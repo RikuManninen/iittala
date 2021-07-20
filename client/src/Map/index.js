@@ -33,22 +33,20 @@ const Map = () => {
 					url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
 				/>
 
-		<LayersControl>
-      <LayersControl.Overlay checked name={`Show markers`}>
-        <Markers coords={ location.coordinates } />
-      </LayersControl.Overlay>
-      <LayersControl.Overlay checked name={`Show user location`}>
-        <LayerGroup>
-          <UserLocation coords={ location.coordinates } alpha={ compassAlpha } />
-        </LayerGroup>
-      </LayersControl.Overlay>
-      {location.loaded && bounds.contains([location.coordinates.latitude, location.coordinates.longitude]) && <LocateControl coords={ [location.coordinates.latitude, location.coordinates.longitude] } />}
-      <DebugText location={ location } orientation={ deviceOrientation } />
+      <LayersControl>
+        <LayersControl.Overlay checked name={`Show markers`}>
+          <Markers coords={ location.coordinates } />
+        </LayersControl.Overlay>
+        <LayersControl.Overlay checked name={`Show user location`}>
+            <UserLocation coords={ location.coordinates } alpha={ compassAlpha } />
+        </LayersControl.Overlay>
+        {location.loaded && bounds.contains([location.coordinates.latitude, location.coordinates.longitude]) && <LocateControl coords={ [location.coordinates.latitude, location.coordinates.longitude] } />}
+        <DebugText location={ location } orientation={ deviceOrientation } />
 
-      <LayersControl.Overlay name={`Show bounds`}>
-        <Rectangle bounds={bounds} fill={false} />
-      </LayersControl.Overlay>
-		</LayersControl>
+        <LayersControl.Overlay name={`Show bounds`}>
+          <Rectangle bounds={bounds} fill={false} />
+        </LayersControl.Overlay>
+      </LayersControl>
 
 			</MapContainer>
 		</>
