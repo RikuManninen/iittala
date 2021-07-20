@@ -125,3 +125,10 @@ button:active {
 .zappar-permission-request {
   z-index: 9001!important;
 }
+
+.leaflet-control-layers-toggle {
+  width: 30px!important;
+  height: 30px!important;
+  background-image: url("./svg/developer.svg")!important;
+  background-size: 20px 20px!important;
+}
