@@ -63,7 +63,7 @@ const Markers = (props) => {
                   openModal(marker.content)
                 }}/>
               </Router>
-              <LayersControl.Overlay name={"Distance to marker " + (index+1)}>
+              <LayersControl.Overlay name={`Distance to "${marker.name}"`}>
                 <Polyline color="red" positions={[userLatLng, markerLatLng]}>
                   <Tooltip sticky>
                     {'Distance ' + distance + ' meters.'}
