@@ -14,6 +14,8 @@ const Map = () => {
   const deviceOrientation = useDeviceOrientation()
   const compassAlpha = useCompass()
 
+  const bounds = L.latLngBounds([[61.086739, 24.123656], [61.092388, 24.146800]])
+
 	return (
 		<>
 			<MapContainer
@@ -21,7 +23,7 @@ const Map = () => {
 				zoom={15}
 				scrollWheelZoom={true}
 				attributionControl={false}
-				maxBounds={L.latLngBounds([[61.086739, 24.123656], [61.092388, 24.146800]])}
+				maxBounds={bounds}
 				maxBoundsViscosity={1.0}
 				minZoom={14}
 			>
@@ -32,7 +34,7 @@ const Map = () => {
 
         <Markers coords={ location.coordinates } />
         <UserLocation coords={ location.coordinates } alpha={ compassAlpha } />
-        {location.loaded && <LocateControl coords={ [location.coordinates.latitude, location.coordinates.longitude] } />}
+        {location.loaded && bounds.contains([location.coordinates.latitude, location.coordinates.longitude]) && <LocateControl coords={ [location.coordinates.latitude, location.coordinates.longitude] } />}
 
         <DebugText location={ location } orientation={ deviceOrientation } />
 
