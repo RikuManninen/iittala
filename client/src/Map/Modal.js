@@ -26,7 +26,7 @@ const Modal = (props) => {
       <>
         <div dangerouslySetInnerHTML={{ __html: props.content }} />
         <button className="btn-modal-left" onClick={ props.closeModal }><ArrowBackIcon/></button>
-        {props.markerId === 125 && <button className="btn-modal-right" onClick={ openGame }><VideogameAssetIcon/></button>}
+        {(props.markerId === 125 || props.markerId === 275) && <button className="btn-modal-right" onClick={ openGame }><VideogameAssetIcon/></button>}
       </>
     : 
       <>
