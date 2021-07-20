@@ -126,9 +126,29 @@ button:active {
   z-index: 9001!important;
 }
 
-.leaflet-control-layers-toggle {
-  width: 30px!important;
-  height: 30px!important;
-  background-image: url("./svg/developer.svg")!important;
-  background-size: 20px 20px!important;
+.leaflet-touch {
+  & .leaflet-control-layers-toggle {
+    width: 30px!important;
+    height: 30px!important;
+    background-image: url("./svg/developer.svg")!important;
+    background-size: 20px 20px!important;
+  }
+  & .leaflet-control-layers, .leaflet-bar {
+    border: 1px solid #aaa;
+    border-radius: 5px;
+  }
+  & .leaflet-bar {
+    & a {
+      font-weight: 100;
+      line-height: 26px;
+      &:first-child {
+        border-top-left-radius: 5px;
+        border-top-right-radius: 5px;
+      }
+      &:last-child {
+        border-bottom-left-radius: 5px;
+        border-bottom-right-radius: 5px;
+      }
+    }
+  }
 }
