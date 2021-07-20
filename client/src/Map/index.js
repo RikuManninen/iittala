@@ -1,5 +1,5 @@
 import React from "react";
-import { MapContainer, TileLayer } from "react-leaflet";
+import { MapContainer, TileLayer, LayersControl } from "react-leaflet";
 import { LocateControl } from "./LocateControlComponent";
 import Markers from "./Markers";
 import UserLocation from "./UserLocation";
@@ -8,6 +8,7 @@ import useGeolocation from "./useGeolocation";
 import useDeviceOrientation from 'react-hook-device-orientation'
 import useCompass from './useCompass'
 import L from 'leaflet'
+import { LayerGroup } from "react-leaflet";
 
 const Map = () => {
   const location = useGeolocation()
@@ -32,11 +33,15 @@ const Map = () => {
 					url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
 				/>
 
+		<LayersControl>
+      <LayersControl.Overlay checked name={`Show markers`}>
         <Markers coords={ location.coordinates } />
-        <UserLocation coords={ location.coordinates } alpha={ compassAlpha } />
-        {location.loaded && bounds.contains([location.coordinates.latitude, location.coordinates.longitude]) && <LocateControl coords={ [location.coordinates.latitude, location.coordinates.longitude] } />}
+      </LayersControl.Overlay>
+      <UserLocation coords={ location.coordinates } alpha={ compassAlpha } />
+      {location.loaded && bounds.contains([location.coordinates.latitude, location.coordinates.longitude]) && <LocateControl coords={ [location.coordinates.latitude, location.coordinates.longitude] } />}
+      <DebugText location={ location } orientation={ deviceOrientation } />
 
-        <DebugText location={ location } orientation={ deviceOrientation } />
+		</LayersControl>
 
 			</MapContainer>
 		</>

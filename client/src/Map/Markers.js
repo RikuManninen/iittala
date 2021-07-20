@@ -67,23 +67,21 @@ const Markers = (props) => {
           );
         })}
       </MarkerClusterGroup>
-      <LayersControl>
-        <LayersControl.Overlay name={`Show marker distances`}>
-          <LayerGroup>
-            {markers.map((marker, index) => {
-              const markerLatLng = [marker.latitude, marker.longitude]
-              const distance = GeometryUtil.length(L.polyline([markerLatLng, userLatLng]))
-              return (
-                <Polyline key={index} color="red" positions={[userLatLng, markerLatLng]}>
-                  <Tooltip sticky>
-                    {'Distance ' + distance + ' meters.'}
-                  </Tooltip>
-                </Polyline>
-              )
-            })}
-          </LayerGroup>
-        </LayersControl.Overlay>
-      </LayersControl>
+      <LayersControl.Overlay name={`Show distances`}>
+        <LayerGroup>
+          {markers.map((marker, index) => {
+            const markerLatLng = [marker.latitude, marker.longitude]
+            const distance = GeometryUtil.length(L.polyline([markerLatLng, userLatLng]))
+            return (
+              <Polyline key={index} color="red" positions={[userLatLng, markerLatLng]}>
+                <Tooltip sticky>
+                  {'Distance ' + distance + ' meters.'}
+                </Tooltip>
+              </Polyline>
+            )
+          })}
+        </LayerGroup>
+      </LayersControl.Overlay>
       <Modal modalIsOpen={ modalIsOpen } closeModal={ closeModal } content={ modalContent } markerId={ modalMarkerId }/>
     </>
 	)
