@@ -37,7 +37,11 @@ const Map = () => {
       <LayersControl.Overlay checked name={`Show markers`}>
         <Markers coords={ location.coordinates } />
       </LayersControl.Overlay>
-      <UserLocation coords={ location.coordinates } alpha={ compassAlpha } />
+      <LayersControl.Overlay checked name={`Show user location`}>
+        <LayerGroup>
+          <UserLocation coords={ location.coordinates } alpha={ compassAlpha } />
+        </LayerGroup>
+      </LayersControl.Overlay>
       {location.loaded && bounds.contains([location.coordinates.latitude, location.coordinates.longitude]) && <LocateControl coords={ [location.coordinates.latitude, location.coordinates.longitude] } />}
       <DebugText location={ location } orientation={ deviceOrientation } />
 
