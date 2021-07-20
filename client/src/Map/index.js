@@ -1,5 +1,5 @@
 import React from "react";
-import { MapContainer, TileLayer, LayersControl } from "react-leaflet";
+import { MapContainer, TileLayer, LayersControl, Rectangle } from "react-leaflet";
 import { LocateControl } from "./LocateControlComponent";
 import Markers from "./Markers";
 import UserLocation from "./UserLocation";
@@ -45,6 +45,9 @@ const Map = () => {
       {location.loaded && bounds.contains([location.coordinates.latitude, location.coordinates.longitude]) && <LocateControl coords={ [location.coordinates.latitude, location.coordinates.longitude] } />}
       <DebugText location={ location } orientation={ deviceOrientation } />
 
+      <LayersControl.Overlay name={`Show bounds`}>
+        <Rectangle bounds={bounds} fill={false} />
+      </LayersControl.Overlay>
 		</LayersControl>
 
 			</MapContainer>
