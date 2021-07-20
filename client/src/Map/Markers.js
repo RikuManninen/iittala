@@ -74,7 +74,7 @@ const Markers = (props) => {
               const markerLatLng = [marker.latitude, marker.longitude]
               const distance = GeometryUtil.length(L.polyline([markerLatLng, userLatLng]))
               return (
-                <Polyline color="red" positions={[userLatLng, markerLatLng]}>
+                <Polyline key={index} color="red" positions={[userLatLng, markerLatLng]}>
                   <Tooltip sticky>
                     {'Distance ' + distance + ' meters.'}
                   </Tooltip>
