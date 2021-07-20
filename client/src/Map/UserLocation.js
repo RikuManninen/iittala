@@ -37,6 +37,7 @@ const UserLocation = (props) => {
               icon={iconCompass}
               ref={compassMarker}
               position={location}
+              zIndexOffset={1000}
             />
           </LayersControl.Overlay>
         }
