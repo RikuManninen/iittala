@@ -60,6 +60,11 @@ const adminBro = new AdminBro({
               show: false, edit: true, filter: true, list: true
             },
           },
+          url: {
+            isVisible: {
+              show: true, edit: false, filter: true, list: true
+            },
+          },
         },
       } 
     },
