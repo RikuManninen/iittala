@@ -63,6 +63,30 @@ const adminBro = new AdminBro({
         },
       } 
     },
+    {
+      resource: db.User,
+      options: {
+        icon: 'User',
+        parent: {
+          name: 'User Management',
+          icon: 'User',
+        },
+        properties: {
+          encryptedPassword: {
+            isVisible: false,
+          },
+          password: {
+           type: 'password',      
+           isVisible: {
+              show: false,
+              edit: true,
+              list: false,
+              filter: false
+            }
+          }
+        }
+      }
+    }
   ],
 });
 
