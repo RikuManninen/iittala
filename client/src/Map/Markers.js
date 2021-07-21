@@ -59,8 +59,8 @@ const Markers = (props) => {
                 }}
               ></Marker>
               <Router>
-                <Route exact path={'/'+index} render={() => {
-                  openModal(marker.content)
+                <Route exact path={'/' + marker.url} render={() => {
+                  openModal(marker.content, marker.id)
                 }}/>
               </Router>
             </div>
