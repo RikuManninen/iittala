@@ -17,6 +17,8 @@ var corsOptions = {
 };
 
 const db = require("./models");
+const User = db.User
+
 db.sequelize.sync();
 
 app.use(helmet({
@@ -24,12 +26,6 @@ app.use(helmet({
 }));
 
 app.use(cors(corsOptions));
-
-// parse requests of content-type - application/json
-app.use(express.json());
-
-// parse requests of content-type - application/x-www-form-urlencoded
-app.use(express.urlencoded({ extended: true }));
 
 // simple route
 app.get("/api", (req, res) => {
@@ -47,6 +43,22 @@ AdminBro.registerAdapter(AdminBroSequelize)
 // AdminBro
 const adminBro = require('./admin')
 
-const router = AdminBroExpress.buildRouter(adminBro)
+// Authenticated Router
+const router = AdminBroExpress.buildAuthenticatedRouter(adminBro, {
+  authenticate: async (email, password) => {
+    const user = await User.authenticate(email, password)
+      if (user) {
+        return user
+      }
+    return false
+  },
+  cookiePassword: 'session Key',
+})
+
 app.use(adminBro.options.rootPath, router)
+
+app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
+
 app.listen(port, () => console.log('Server is under localhost:'+ port))
+
