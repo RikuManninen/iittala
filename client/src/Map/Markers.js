@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Marker, Polyline, Tooltip, LayersControl, LayerGroup } from 'react-leaflet';
+import { Marker, Polyline, Tooltip, LayersControl, LayerGroup, Popup } from 'react-leaflet';
 import MarkerClusterGroup from "react-leaflet-markercluster";
 import { getMarkerInfo } from "../Api";
 import Modal from './Modal';
@@ -41,24 +41,30 @@ const Markers = (props) => {
         {markers.map((marker, index) => {
           const markerLatLng = [marker.latitude, marker.longitude]
           const distance = GeometryUtil.length(L.polyline([markerLatLng, userLatLng]))
+          let isActive = false
+          distance <= 20 && (isActive=true)
           return (
             <div key={index}>
               <Marker
                 position={markerLatLng}
                 icon={
-                  distance > 20 || !distance ? (
-                    iconMarker
-                  ):(
+                  isActive ? (
                     iconMarkerNear
+                  ):(
+                    iconMarker
                   )
                 }
                 eventHandlers={{
                   click: (e) => {
-                    e.target.options.icon = iconMarkerVisited
-                    openModal(marker.content, marker.id)
+                    if (isActive) {
+                      e.target.options.icon = iconMarkerVisited
+                      openModal(marker.content, marker.id)
+                    }
                   },
                 }}
-              ></Marker>
+              >
+              {!isActive && <Popup>Marker is not active</Popup>}
+              </Marker>
               <Router>
                 <Route exact path={'/' + marker.url} render={() => {
                   if (!modalOpenedWithUrl) { // detects if modal is opened with url
