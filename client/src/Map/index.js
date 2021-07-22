@@ -41,7 +41,6 @@ const Map = () => {
             <UserLocation coords={ location.coordinates } alpha={ compassAlpha } />
         </LayersControl.Overlay>
         {location.loaded && bounds.contains([location.coordinates.latitude, location.coordinates.longitude]) && <LocateControl coords={ [location.coordinates.latitude, location.coordinates.longitude] } />}
-        <DebugText location={ location } orientation={ deviceOrientation } />
 
         <LayersControl.Overlay name={`Show bounds`}>
           <Rectangle bounds={bounds} fill={false} />
