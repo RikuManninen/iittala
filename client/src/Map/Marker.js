@@ -18,22 +18,22 @@ const Marker = (props) => {
   
   const distance = GeometryUtil.length(L.polyline([markerLatLng, userLatLng]))
 
-  const resetMarker = () => {
-    !hasVisitedMarker && setMarkerIcon(iconMarker)
-  }
-
   const activateMarker = () => {
     setMarkerIsActive(true)
-    setMarkerIcon(iconMarkerNear)
+    markerIsVisited ? setMarkerIcon(iconMarkerVisited) : setMarkerIcon(iconMarkerNear)
+  }  
+  
+  const deactivateMarker = () => {
+    setMarkerIsActive(false)
+    markerIsVisited ? setMarkerIcon(iconMarkerVisited) : setMarkerIcon(iconMarker)
   }
 
   const hasVisitedMarker = () => {
     setMarkerIsVisited(true)
-    setMarkerIcon(iconMarkerVisited)
   }
 
   useEffect(() => {
-    distance <= 20 ? ( markerIsVisited ? hasVisitedMarker() : activateMarker() ) : resetMarker()
+    distance <= 20 ? activateMarker() : deactivateMarker()
   })
 
   return (
@@ -50,7 +50,7 @@ const Marker = (props) => {
           },
         }}
       >
-        {!markerIsActive && <Popup>Marker is not active</Popup>}
+        {!markerIsActive && <Popup>This marker is not active</Popup>}
       </LeafletMarker>
       <Router>
         <Route exact path={'/' + marker.url} render={() => {
