@@ -1,14 +1,12 @@
 import React from "react";
-import { MapContainer, TileLayer, LayersControl, Rectangle } from "react-leaflet";
+import { MapContainer, TileLayer, LayersControl, Rectangle, LayerGroup } from "react-leaflet";
 import { LocateControl } from "./LocateControlComponent";
 import Markers from "./Markers";
 import UserLocation from "./UserLocation";
-import DebugText from './DebugText';
 import useGeolocation from "./useGeolocation";
 import useDeviceOrientation from 'react-hook-device-orientation'
 import useCompass from './useCompass'
 import L from 'leaflet'
-import { LayerGroup } from "react-leaflet";
 
 const Map = () => {
   const location = useGeolocation()
@@ -28,24 +26,31 @@ const Map = () => {
 				maxBoundsViscosity={1.0}
 				minZoom={14}
 			>
+
 				<TileLayer
 					attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
 					url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
 				/>
 
-      <LayersControl>
-        <LayersControl.Overlay checked name={`Show markers`}>
-          <Markers coords={ location.coordinates } />
-        </LayersControl.Overlay>
-        <LayersControl.Overlay checked name={`Show user location`}>
-            <UserLocation coords={ location.coordinates } alpha={ compassAlpha } />
-        </LayersControl.Overlay>
-        {location.loaded && bounds.contains([location.coordinates.latitude, location.coordinates.longitude]) && <LocateControl coords={ [location.coordinates.latitude, location.coordinates.longitude] } />}
+				<LayersControl>
 
-        <LayersControl.Overlay name={`Show bounds`}>
-          <Rectangle bounds={bounds} fill={false} />
-        </LayersControl.Overlay>
-      </LayersControl>
+					<LayersControl.Overlay checked name={`Show markers`}>
+						<LayerGroup>
+							<Markers coords={ location.coordinates } />1
+						</LayerGroup>
+					</LayersControl.Overlay>
+
+					<LayersControl.Overlay checked name={`Show user location`}>
+							<UserLocation coords={ location.coordinates } alpha={ compassAlpha } />
+					</LayersControl.Overlay>
+
+					{location.loaded && bounds.contains([location.coordinates.latitude, location.coordinates.longitude]) && <LocateControl coords={ [location.coordinates.latitude, location.coordinates.longitude] } />}
+
+					<LayersControl.Overlay name={`Show bounds`}>
+						<Rectangle bounds={bounds} fill={false} />
+					</LayersControl.Overlay>
+
+				</LayersControl>
 
 			</MapContainer>
 		</>
