@@ -5,7 +5,7 @@ module.exports = {
     const testUsers = [];
     testUsers.push({
       email: 'admin@admin.com',
-      encryptedPassword: bcrypt.hashSync('password', 10),
+      encryptedPassword: bcrypt.hashSync(process.env.ADMIN_PASS, 10),
       createdAt: new Date(),
       updatedAt: new Date(),
     });
