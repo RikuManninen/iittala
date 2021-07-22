@@ -9,18 +9,21 @@ export const iconMarker = L.icon({
 	iconUrl: marker,
 	iconSize: [28, 42],
 	iconAnchor: [14, 42],
+	popupAnchor: [0, -44],
 });
 
 export const iconMarkerVisited = L.icon({
 	iconUrl: markerVisited,
 	iconSize: [28, 42],
 	iconAnchor: [14, 42],
+	popupAnchor: [0, -44],
 });
 
 export const iconMarkerNear = L.icon({
 	iconUrl: markerNear,
 	iconSize: [28, 42],
 	iconAnchor: [14, 42],
+	popupAnchor: [0, -44],
 });
 
 export const iconUser = L.icon({
