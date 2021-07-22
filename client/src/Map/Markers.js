@@ -15,6 +15,7 @@ const Markers = (props) => {
 	const [modalIsOpen, setModalIsOpen] = useState(false);
 	const [modalContent, setModalContent] = useState("");
 	const [modalMarkerId, setModalMarkerId] = useState("");
+  const [modalOpenedWithUrl, setModalOpenedWithUrl] = useState(false);
 
 	const userLatLng = [props.coords.latitude, props.coords.longitude];
 
@@ -60,7 +61,10 @@ const Markers = (props) => {
               ></Marker>
               <Router>
                 <Route exact path={'/' + marker.url} render={() => {
-                  openModal(marker.content, marker.id)
+                  if (!modalOpenedWithUrl) { // detects if modal is opened with url
+                    setModalOpenedWithUrl(true);
+                    openModal(marker.content, marker.id)
+                  }
                 }}/>
               </Router>
             </div>
