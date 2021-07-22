@@ -152,3 +152,16 @@ button:active {
     }
   }
 }
+
+.leaflet-popup-content-wrapper, .leaflet-popup-tip {
+  box-shadow: none;
+  border: 1px solid #aaa;
+}
+
+.leaflet-popup-tip-container {
+  bottom: -19px;
+}
+
+.leaflet-container a.leaflet-popup-close-button {
+  display: none;
+}
