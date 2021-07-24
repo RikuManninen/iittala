@@ -30,6 +30,7 @@ const Marker = (props) => {
 
   const hasVisitedMarker = () => {
     setMarkerIsVisited(true)
+    !markerIsVisited && props.scoreHandler()
   }
 
   useEffect(() => {

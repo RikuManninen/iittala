@@ -165,3 +165,20 @@ button:active {
 .leaflet-container a.leaflet-popup-close-button {
   display: none;
 }
+
+.score-container {
+  background: #b9242e;
+  z-index: 500;
+  position: absolute;
+  display: block;
+  height: 70px;
+  width: 70px;
+  border-radius: 100%;
+  right: 1rem;
+  top: 1rem;
+  color: #fff;
+  font-size: 30px;
+  text-align: center;
+  line-height: 66px;
+  font-weight: 200
+}
