@@ -166,6 +166,11 @@ button:active {
   display: none;
 }
 
+.leaflet-marker-user {
+  box-shadow: #666 0px 0px 5px 0px;
+  border-radius: 100%;
+}
+
 .score-container {
   background: #b9242e;
   z-index: 500;

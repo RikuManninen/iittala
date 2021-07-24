@@ -30,6 +30,7 @@ export const iconUser = L.icon({
 	iconUrl: user,
 	iconSize: [20, 20],
 	iconAnchor: [10, 10],
+	className: 'leaflet-marker-user'
 });
 
 export const iconCompass = L.icon({
