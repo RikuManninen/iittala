@@ -1,9 +1,10 @@
 import { useState, useEffect } from 'react'
-import { Marker as LeafletMarker, Popup } from "react-leaflet";
+import { Marker as LeafletMarker } from "react-leaflet";
 import { iconMarker, iconMarkerNear, iconMarkerVisited } from './Icons'
 import { Route, BrowserRouter as Router } from "react-router-dom";
 import GeometryUtil from 'leaflet-geometryutil'
 import L from 'leaflet'
+import { store } from 'react-notifications-component';
 
 const Marker = (props) => {
 
@@ -48,10 +49,23 @@ const Marker = (props) => {
               hasVisitedMarker()
               props.openModal(marker.content, marker.id)
             }
+            else {
+              store.addNotification({
+                title: "This marker is not active",
+                message: "You are not near enough to activate the marker",
+                type: "danger",
+                insert: "top",
+                container: "top-right",
+                animationIn: ["animate__animated", "animate__fadeIn"],
+                animationOut: ["animate__animated", "animate__fadeOut"],
+                dismiss: {
+                  duration: 3000,
+                }
+              });
+            }
           },
         }}
       >
-        {!markerIsActive && <Popup>This marker is not active</Popup>}
       </LeafletMarker>
       <Router>
         <Route exact path={'/' + marker.url} render={() => {

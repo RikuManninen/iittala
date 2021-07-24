@@ -7,6 +7,8 @@ import useGeolocation from "./useGeolocation";
 import useCompass from './useCompass'
 import L from 'leaflet'
 import Score from "./Score";
+import ReactNotification from 'react-notifications-component'
+import 'react-notifications-component/dist/theme.css'
 
 
 const Map = () => {
@@ -22,6 +24,7 @@ const Map = () => {
 
 	return (
 		<>
+      <ReactNotification />
 			<MapContainer
 				center={[61.089625, 24.134696]}
 				zoom={15}
