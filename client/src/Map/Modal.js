@@ -8,6 +8,10 @@ import { Redirect, BrowserRouter as Router } from 'react-router-dom';
 const Modal = (props) => {
 
 	const [gameIsOpen, setGameIsOpen] = useState(false);
+  const gameMarkerIds = [
+    125, 
+    275
+  ]
 
 	const openGame = () => {
 		setGameIsOpen(true)
@@ -30,7 +34,7 @@ const Modal = (props) => {
         <>
           <div dangerouslySetInnerHTML={{ __html: props.content }} />
           <button className="btn-modal-left" onClick={ props.closeModal }><ArrowBackIcon/></button>
-          {(props.markerId === 125 || props.markerId === 275) && <button className="btn-modal-right" onClick={ openGame }><VideogameAssetIcon/></button>}
+          {gameMarkerIds.some(id => id === props.markerId) && <button className="btn-modal-right" onClick={ openGame }><VideogameAssetIcon/></button>}
         </>
       : 
         <>
