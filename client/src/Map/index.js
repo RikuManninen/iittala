@@ -4,13 +4,11 @@ import { LocateControl } from "./LocateControlComponent";
 import Markers from "./Markers";
 import UserLocation from "./UserLocation";
 import useGeolocation from "./useGeolocation";
-import useDeviceOrientation from 'react-hook-device-orientation'
 import useCompass from './useCompass'
 import L from 'leaflet'
 
 const Map = () => {
   const location = useGeolocation()
-  const deviceOrientation = useDeviceOrientation()
   const compassAlpha = useCompass()
 
   const bounds = L.latLngBounds([[61.086739, 24.123656], [61.092388, 24.146800]])

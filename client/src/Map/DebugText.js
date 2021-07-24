@@ -15,12 +15,6 @@ const DebugText = (props) => {
         </>
       : <p className="debug-text-warning">No geolocation data available</p>}
 
-      <h1 className="debug-text">Device orientation: </h1>
-      {orientation.alpha ? <p className="debug-text">Alpha: {orientation.alpha}</p> : <p className="debug-text-warning">No orientation data available</p>}
-      {orientation.beta && <p className="debug-text">Beta: {orientation.beta}</p>}
-      {orientation.gamma && <p className="debug-text">Gamma: {orientation.gamma}</p>}
-      {orientation.absolute && <p className="debug-text">Absolute: {orientation.absolute ? 'yes' : 'no'}</p>}
-
     </div>
   )
 }
