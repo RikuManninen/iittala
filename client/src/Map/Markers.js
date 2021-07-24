@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Polyline, Tooltip, LayersControl, LayerGroup } from 'react-leaflet';
+import { Polyline, Tooltip, LayersControl, LayerGroup, Circle } from 'react-leaflet';
 import MarkerClusterGroup from "react-leaflet-markercluster";
 import { getMarkerInfo } from "../Api";
 import Modal from './Modal';
@@ -53,6 +53,23 @@ const Markers = (props) => {
                   {'Distance ' + distance + ' meters.'}
                 </Tooltip>
               </Polyline>
+            )
+          })}
+        </LayerGroup>
+      </LayersControl.Overlay>
+
+      <LayersControl.Overlay name={`Show activation zones`}>
+        <LayerGroup>
+          {markers.map((marker, index) => {
+            const markerLatLng = [marker.latitude, marker.longitude]
+            return (
+            <Circle 
+              key={index}
+              center={markerLatLng}
+              radius={20}
+              color={'#b9242e'}
+              stroke={false}
+            />
             )
           })}
         </LayerGroup>
