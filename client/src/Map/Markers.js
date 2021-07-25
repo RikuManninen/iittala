@@ -31,6 +31,7 @@ const Markers = (props) => {
 		}
 		fetchData();
     ReactModal.setAppElement('body');
+    return () => setMarkers([]);
 	}, [])
 
 	return (
