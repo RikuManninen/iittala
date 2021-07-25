@@ -1,24 +1,25 @@
 import { createControlComponent } from "@react-leaflet/core";
-import { Control, DomEvent, DomUtil } from "leaflet";
+import L, { Control, DomEvent, DomUtil } from "leaflet";
 
 Control.Developer = Control.Layers.extend({
 
   onAdd: function (map) {
 		this._initLayout();
-		this._addButton();
+		this._addButton(map);
 		this._update();
-    console.log(this._container)
 		return this._container;
 	},
 
-  _addButton: function () {
+  _addButton: function (map) {
     this._container.classList.add("control-developer");
 	  var elements = this._container.getElementsByClassName('leaflet-control-layers-list');
-	  var button = DomUtil.create('button', 'my-button-class', elements[0]);
-	  button.textContent = 'Close control';
-	  DomEvent.on(button, 'click', function(e){
-	    DomEvent.stop(e);
-	    this._collapse();
+    var input = DomUtil.create('input', 'btn-disable-bounds leaflet-control-layers-selector', elements[0]);
+	  var label = DomUtil.create('span', 'btn-disable-bounds-label', elements[0]);
+    input.setAttribute('type', 'checkbox');
+	  label.textContent = 'Disable bounds';
+	  DomEvent.on(input, 'click', function(e){
+      map.setMaxBounds(null)
+      map.setMinZoom(null)
 	  }, this);
 	}
 
