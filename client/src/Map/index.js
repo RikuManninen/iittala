@@ -9,7 +9,7 @@ import L from 'leaflet'
 import Score from "./Score";
 import ReactNotification from 'react-notifications-component'
 import 'react-notifications-component/dist/theme.css'
-
+import { DevControl } from './DeveloperControlComponent'
 
 const Map = () => {
   const location = useGeolocation()
@@ -42,7 +42,7 @@ const Map = () => {
 
         <Score score={ score } />
 
-				<LayersControl>
+				<DevControl>
 
 					<LayersControl.Overlay checked name={`Show markers`}>
 						<LayerGroup>
@@ -54,13 +54,13 @@ const Map = () => {
 						<UserLocation coords={ location.coordinates } alpha={ compassAlpha } />
 					</LayersControl.Overlay>
 
-					{location.loaded && bounds.contains([location.coordinates.latitude, location.coordinates.longitude]) && <LocateControl coords={ [location.coordinates.latitude, location.coordinates.longitude] } />}
-
 					<LayersControl.Overlay name={`Show bounds`}>
 						<Rectangle bounds={bounds} fill={false} />
 					</LayersControl.Overlay>
 
-				</LayersControl>
+				</DevControl>
+
+        {location.loaded && bounds.contains([location.coordinates.latitude, location.coordinates.longitude]) && <LocateControl coords={ [location.coordinates.latitude, location.coordinates.longitude] } />}
 
 			</MapContainer>
 		</>
