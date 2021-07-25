@@ -31,7 +31,7 @@ const Map = () => {
 				scrollWheelZoom={true}
 				attributionControl={false}
 				maxBounds={bounds}
-				maxBoundsViscosity={1.0}
+				maxBoundsViscosity={.5}
 				minZoom={14}
 			>
 
