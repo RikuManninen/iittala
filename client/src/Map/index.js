@@ -42,7 +42,7 @@ const Map = () => {
 
         <Score score={ score } />
 
-				<DevControl>
+        <LayersControl>
 
 					<LayersControl.Overlay checked name={`Show markers`}>
 						<LayerGroup>
@@ -57,9 +57,10 @@ const Map = () => {
 					<LayersControl.Overlay name={`Show bounds`}>
 						<Rectangle bounds={bounds} fill={false} />
 					</LayersControl.Overlay>
+        </LayersControl>
 
-				</DevControl>
-
+        <DevControl />
+        
         {location.loaded && bounds.contains([location.coordinates.latitude, location.coordinates.longitude]) && <LocateControl coords={ [location.coordinates.latitude, location.coordinates.longitude] } />}
 
 			</MapContainer>
