@@ -12,6 +12,7 @@ Control.Developer = Control.Layers.extend({
 	},
 
   _addButton: function () {
+    this._container.classList.add("control-developer");
 	  var elements = this._container.getElementsByClassName('leaflet-control-layers-list');
 	  var button = DomUtil.create('button', 'my-button-class', elements[0]);
 	  button.textContent = 'Close control';

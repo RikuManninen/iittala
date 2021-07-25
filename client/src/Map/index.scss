@@ -130,8 +130,11 @@ button:active {
   & .leaflet-control-layers-toggle {
     width: 30px!important;
     height: 30px!important;
-    background-image: url("./svg/developer.svg")!important;
+    background-image: url("./svg/visibility.svg");
     background-size: 20px 20px!important;
+  }
+  & .control-developer a {
+    background-image: url("./svg/developer.svg")!important;
   }
   & .leaflet-control-layers, .leaflet-bar {
     border: 1px solid #aaa;
