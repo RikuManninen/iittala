@@ -11,6 +11,7 @@ const Marker = (props) => {
   const marker = props.marker
   const userLatLng = props.userLatLng
   const markerLatLng = [props.marker.latitude, props.marker.longitude]
+  const activateAll = props.activateAll
 
   const [modalOpenedWithUrl, setModalOpenedWithUrl] = useState(false);
   const [markerIsActive, setMarkerIsActive] = useState(false);
@@ -36,6 +37,7 @@ const Marker = (props) => {
 
   useEffect(() => {
     distance <= 20 ? activateMarker() : deactivateMarker()
+    activateAll && activateMarker()
   })
 
   return (

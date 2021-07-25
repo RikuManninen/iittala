@@ -39,7 +39,7 @@ const Markers = (props) => {
 
       <MarkerClusterGroup>
         {markers.map((marker, index) => {
-          return <Marker key={index} marker={marker} openModal={openModal} userLatLng={userLatLng} scoreHandler={props.scoreHandler} />
+          return <Marker key={index} marker={marker} openModal={openModal} userLatLng={userLatLng} scoreHandler={props.scoreHandler} activateAll={props.activateAll}/>
         })}
       </MarkerClusterGroup>
 

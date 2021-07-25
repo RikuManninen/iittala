@@ -9,11 +9,13 @@ import L from 'leaflet'
 import Score from "./Score";
 import ReactNotification from 'react-notifications-component'
 import 'react-notifications-component/dist/theme.css'
-import { DevControl } from './DeveloperControlComponent'
 
 const Map = () => {
   const location = useGeolocation()
   const compassAlpha = useCompass()
+
+  const [activateAll, setActivateAll] = useState(false)
+  const [disableBounds, setDisableBounds] = useState(false)
 
   const bounds = L.latLngBounds([[61.086739, 24.123656], [61.092388, 24.146800]])
 
@@ -46,7 +48,7 @@ const Map = () => {
 
 					<LayersControl.Overlay checked name={`Show markers`}>
 						<LayerGroup>
-							<Markers coords={ location.coordinates } scoreHandler={ scoreHandler } />
+							<Markers coords={ location.coordinates } scoreHandler={ scoreHandler } activateAll={ activateAll }/>
 						</LayerGroup>
 					</LayersControl.Overlay>
 
@@ -58,12 +60,16 @@ const Map = () => {
 						<Rectangle bounds={bounds} fill={false} />
 					</LayersControl.Overlay>
         </LayersControl>
-
-        <DevControl />
         
         {location.loaded && bounds.contains([location.coordinates.latitude, location.coordinates.longitude]) && <LocateControl coords={ [location.coordinates.latitude, location.coordinates.longitude] } />}
 
 			</MapContainer>
+      <button href="#" onClick={ setActivateAll } >activate all markers</button>
+      {/*}
+      <button href="#" onClick={ setDisableBounds } >disable bounds</button>
+      <button href="#" onClick={ setActivateAll } style={{margin:'.25em'}}>show debug info</button>
+      <button href="#" onClick={ setActivateAll } style={{margin:'.25em'}}>use fake location</button>
+      {*/}
 		</>
 	)
 	
