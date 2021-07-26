@@ -1,11 +1,11 @@
 import React, { useState } from "react";
-import { MapContainer, TileLayer, LayersControl, Rectangle, LayerGroup } from "react-leaflet";
+import { MapContainer, TileLayer, LayersControl, Rectangle, LayerGroup, MapConsumer } from "react-leaflet";
 import { LocateControl } from "./LocateControlComponent";
 import Markers from "./Markers";
 import UserLocation from "./UserLocation";
 import useGeolocation from "./useGeolocation";
 import useCompass from './useCompass'
-import L from 'leaflet'
+import L, { map } from 'leaflet'
 import Score from "./Score";
 import ReactNotification from 'react-notifications-component'
 import 'react-notifications-component/dist/theme.css'
@@ -37,6 +37,16 @@ const Map = () => {
 				minZoom={14}
 			>
 
+        <MapConsumer>
+          {(map) => {
+            if(disableBounds) {
+              map.setMaxBounds(null)
+              return null
+            }
+            return null
+          }}
+        </MapConsumer>
+
 				<TileLayer
 					attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
 					url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
@@ -65,8 +75,8 @@ const Map = () => {
 
 			</MapContainer>
       <button href="#" onClick={ setActivateAll } >activate all markers</button>
-      {/*}
       <button href="#" onClick={ setDisableBounds } >disable bounds</button>
+      {/*}
       <button href="#" onClick={ setActivateAll } style={{margin:'.25em'}}>show debug info</button>
       <button href="#" onClick={ setActivateAll } style={{margin:'.25em'}}>use fake location</button>
       {*/}
