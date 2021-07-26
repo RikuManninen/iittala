@@ -4,6 +4,7 @@ import markerVisited from "./svg/markerVisited.svg";
 import markerNear from "./svg/markerNear.svg";
 import user from "./svg/user.svg";
 import userCompass from './svg/userCompass.svg'
+import markerDraggable from './svg/markerDraggable.svg'
 
 export const iconMarker = L.icon({
 	iconUrl: marker,
@@ -37,4 +38,10 @@ export const iconCompass = L.icon({
 	iconUrl: userCompass,
 	iconSize: [32, 32],
 	iconAnchor: [16, 16],
+});
+
+export const iconMarkerDraggable = L.icon({
+	iconUrl: markerDraggable,
+	iconSize: [52, 52],
+	iconAnchor: [26, 26],
 });

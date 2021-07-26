@@ -11,13 +11,81 @@ import ReactNotification from 'react-notifications-component'
 import 'react-notifications-component/dist/theme.css'
 import DebugText from "./DebugText";
 
+import { useRef, useMemo, useCallback } from "react";
+import { Marker, Popup } from "react-leaflet";
+import { iconMarkerDraggable } from "./Icons";
+
+const center = [61.089625, 24.134696]
+
+const DraggableMarker = (props) => {
+  const [draggable, setDraggable] = useState(false)
+  const [position, setPosition] = useState(center)
+  const markerRef = useRef(null)
+  const eventHandlers = useMemo(
+    () => ({
+      dragend() {
+        const marker = markerRef.current
+        if (marker != null) {
+          setPosition(marker.getLatLng())
+          props.locationHandler({
+            loaded: true,
+            coordinates: {
+              latitude: marker.getLatLng().lat,
+              longitude: marker.getLatLng().lng,
+              accuracy: 20,
+            },
+          })
+        }
+      },
+    }),
+    [],
+  )
+  const toggleDraggable = useCallback(() => {
+    setDraggable((d) => !d)
+  }, [])
+
+  return (
+    <Marker
+      draggable={draggable}
+      eventHandlers={eventHandlers}
+      position={position}
+      ref={markerRef}
+      zIndexOffset={1200}
+      icon={iconMarkerDraggable}
+      >
+      <Popup minWidth={90}>
+        <span onClick={toggleDraggable}>
+          {draggable
+            ? 'Marker is draggable'
+            : 'Click here to make marker draggable'}
+        </span>
+      </Popup>
+    </Marker>
+  )
+}
+
 const Map = () => {
-  const location = useGeolocation()
+  const geolocation = useGeolocation()
   const compassAlpha = useCompass()
+
+  const [location, setLocation] = useState({
+    loaded: true,
+    coordinates: {
+      latitude: 0,
+      longitude: 0,
+      accuracy: 100,
+    },
+  })
 
   const [activateAll, setActivateAll] = useState(false)
   const [disableBounds, setDisableBounds] = useState(false)
   const [showDebugInfo, setShowDebugInfo] = useState(false)
+  const [useFakeLocation, setUseFakeLocation] = useState(true)
+
+  const handleLocation = (fakeLocation) => {
+    setLocation(!useFakeLocation ? geolocation : fakeLocation)
+    console.log(location)
+  }
 
   const bounds = L.latLngBounds([[61.086739, 24.123656], [61.092388, 24.146800]])
 
@@ -72,6 +140,8 @@ const Map = () => {
 						<Rectangle bounds={bounds} fill={false} />
 					</LayersControl.Overlay>
         </LayersControl>
+
+        <DraggableMarker locationHandler={ handleLocation }/>
         
         {location.loaded && bounds.contains([location.coordinates.latitude, location.coordinates.longitude]) && <LocateControl coords={ [location.coordinates.latitude, location.coordinates.longitude] } />}
 
@@ -81,9 +151,7 @@ const Map = () => {
       <button href="#" onClick={ setActivateAll } >activate all markers</button>
       <button href="#" onClick={ setDisableBounds } >disable bounds</button>
       <button href="#" onClick={ setShowDebugInfo } >show geolocation info</button>
-      {/*}
-      <button href="#" onClick={ setActivateAll } style={{margin:'.25em'}}>use fake location</button>
-      {*/}
+      <button href="#" onClick={ setUseFakeLocation } style={{margin:'.25em'}}>use fake location</button>
 		</>
 	)
 	
