@@ -1,6 +1,5 @@
 const DebugText = (props) => {
   const location = props.location
-  const orientation = props.orientation
 
   return (
     <div className="debug-text-container">
