@@ -16,12 +16,8 @@ function Tabits() {
     
   </TabList>
 
-  <TabPanel id='Tab1'>
-    <p>
-      
-      <Map/>
-    </p>
-    
+  <TabPanel>
+    <Map/>
   </TabPanel>
   <TabPanel id='Tab2'>
     <p>

@@ -1,4 +1,5 @@
 'use strict';
+const short = require('short-uuid');
 const {
   Model
 } = require('sequelize');
@@ -16,7 +17,14 @@ module.exports = (sequelize, DataTypes) => {
   Marker.init({
     latitude: DataTypes.DECIMAL,
     longitude: DataTypes.DECIMAL,
-    content: DataTypes.TEXT
+    content: DataTypes.TEXT,
+    name: DataTypes.STRING,
+    url: {
+      type: DataTypes.STRING,
+      defaultValue: function() {
+        return short.generate()
+      },
+    }
   }, {
     sequelize,
     modelName: 'Marker',

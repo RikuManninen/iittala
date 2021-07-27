@@ -32,7 +32,10 @@ const adminBro = new AdminBro({
             type: 'richtext',
             components: {
               edit: AdminBro.bundle('./tinymce'),
-            }
+            },
+            isVisible: {
+              show: true, edit: true, filter: false, list: false
+            },
           },
           map: {
             isVisible: {
@@ -52,9 +55,43 @@ const adminBro = new AdminBro({
               show: true, edit: false, filter: true, list: false
             },
           },
+          name: {
+            isVisible: {
+              show: false, edit: true, filter: true, list: true
+            },
+          },
+          url: {
+            isVisible: {
+              show: true, edit: false, filter: true, list: true
+            },
+          },
         },
       } 
     },
+    {
+      resource: db.User,
+      options: {
+        icon: 'User',
+        parent: {
+          name: 'User Management',
+          icon: 'User',
+        },
+        properties: {
+          encryptedPassword: {
+            isVisible: false,
+          },
+          password: {
+           type: 'password',      
+           isVisible: {
+              show: false,
+              edit: true,
+              list: false,
+              filter: false
+            }
+          }
+        }
+      }
+    }
   ],
 });
 
