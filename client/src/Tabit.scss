@@ -1,0 +1,59 @@
+.react-tabs {
+}
+
+.react-tabs__tab-list {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  padding: 0;
+  margin: 0;
+  font-size: 1.25em;
+  & .MuiSvgIcon-root {
+    font-size: 1.75em;
+  }
+}
+
+.react-tabs__tab {
+  transition: color .5s;
+  list-style: none;
+  color: rgb(136, 136, 136);
+  position: relative;
+  height: 4em;
+  flex-grow: 1;
+  & > * {
+    margin: auto;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    text-align: center;
+    line-height: 4em;
+  }
+}
+
+.react-tabs__tab--selected {
+  color: #b9242e;
+}
+
+.react-tabs__tab--disabled {
+
+}
+
+.react-tabs__tab:focus {
+
+}
+
+.react-tabs__tab:focus:after {
+
+}
+
+.react-tabs__tab-panel {
+
+}
+
+.react-tabs__tab-panel--selected {
+
+}

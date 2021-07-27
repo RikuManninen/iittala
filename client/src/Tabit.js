@@ -1,11 +1,9 @@
-import "./App.scss";
 import Map from "./Map";
 import {Tab, Tabs, TabList,TabPanel} from 'react-tabs';
 import Quizes from "./Quizes";
 import InfoIcon from '@material-ui/icons/Info';
 import MapIcon from '@material-ui/icons/Map';
-
-
+import './Tabit.scss';
 
 function Tabits() {
   return (
