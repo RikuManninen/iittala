@@ -148,10 +148,12 @@ const Map = () => {
         {showDebugInfo && <DebugText location={ location } />}
 
 			</MapContainer>
+      {/*}
       <button href="#" onClick={ setActivateAll } >activate all markers</button>
       <button href="#" onClick={ setDisableBounds } >disable bounds</button>
       <button href="#" onClick={ setShowDebugInfo } >show geolocation info</button>
       <button href="#" onClick={ setUseFakeLocation } style={{margin:'.25em'}}>use fake location</button>
+        {*/}
 		</>
 	)
 	

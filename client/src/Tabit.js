@@ -5,35 +5,30 @@ import Quizes from "./Quizes";
 
 
 
-
 function Tabits() {
-  return <div class='tav'>
+  return (
     <Tabs >
-  <TabList>
-    <Tab >Map</Tab>
-    <Tab >Information</Tab>
-    <Tab >Riku</Tab>
-    
-  </TabList>
 
-  <TabPanel>
-    <Map/>
-  </TabPanel>
-  <TabPanel>
-    <p>
-      <Quizes/>
-    </p>
-    
-  </TabPanel>
-  <TabPanel>
-    <p>
-      Testiä varten
-    </p>
-    
-  </TabPanel>
-  
-</Tabs>
-</div>
+      <TabPanel>
+        <Map/>
+      </TabPanel>
+
+      <TabPanel>
+        Lorem ipsum ...
+      </TabPanel>
+
+      <TabPanel>
+        <Quizes/>
+      </TabPanel>
+
+      <TabList>
+        <Tab >Map</Tab>
+        <Tab >Information</Tab>
+        <Tab >Quiz</Tab>
+      </TabList>
+
+    </Tabs>
+  )
 }
 
 export default Tabits;
