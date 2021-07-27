@@ -2,6 +2,8 @@ import "./App.scss";
 import Map from "./Map";
 import {Tab, Tabs, TabList,TabPanel} from 'react-tabs';
 import Quizes from "./Quizes";
+import InfoIcon from '@material-ui/icons/Info';
+import MapIcon from '@material-ui/icons/Map';
 
 
 
@@ -22,9 +24,9 @@ function Tabits() {
       </TabPanel>
 
       <TabList>
-        <Tab >Map</Tab>
-        <Tab >Information</Tab>
-        <Tab >Quiz</Tab>
+        <Tab ><MapIcon /></Tab>
+        <Tab ><InfoIcon /></Tab>
+        <Tab ><b>Quiz</b></Tab>
       </TabList>
 
     </Tabs>
