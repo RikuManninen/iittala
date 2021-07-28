@@ -51,7 +51,7 @@ button:active {
   color: #5B5053;
   box-sizing: border-box;
   outline: none;
-  & button {
+  & > button {
     position: absolute;
     top: 1em;
   }
@@ -75,6 +75,11 @@ button:active {
     background: #000; 
     height: calc(100% + 5em);
     margin: -4em -2em;
+    & .react-quiz-container {
+      padding: 6em 1em 1em 1em;
+      box-sizing: border-box;
+      background: #fff;
+    }
   }
 }
 
