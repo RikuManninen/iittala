@@ -1,8 +1,10 @@
 .react-tabs {
+  padding: 0 0 5em 0;
 }
 
 .react-tabs__tab-list {
-  position: absolute;
+  background: #fff;
+  position: fixed;
   bottom: 0;
   width: 100%;
   display: flex;
