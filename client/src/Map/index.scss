@@ -198,6 +198,9 @@ button:active {
       margin: 0;
       top: 0;
       font-weight: 800;
+      @media (min-width: 768px) {
+        transform: scale(1.5);
+      }
     }
   }
 }
