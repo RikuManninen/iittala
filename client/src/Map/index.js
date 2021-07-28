@@ -124,7 +124,7 @@ const Map = () => {
 
         <Score score={ score } />
 
-        <LayersControl>
+        <LayersControl position="bottomright">
 
 					<LayersControl.Overlay checked name={`Show markers`}>
 						<LayerGroup>
@@ -148,12 +148,13 @@ const Map = () => {
         {showDebugInfo && <DebugText location={ location } />}
 
 			</MapContainer>
-      {/*}
-      <button href="#" onClick={ setActivateAll } >activate all markers</button>
-      <button href="#" onClick={ setDisableBounds } >disable bounds</button>
-      <button href="#" onClick={ setShowDebugInfo } >show geolocation info</button>
-      <button href="#" onClick={ setUseFakeLocation } style={{margin:'.25em'}}>use fake location</button>
-        {*/}
+
+      <div className="dev-tools">
+        <button href="#" onClick={ setActivateAll }><p>activate all markers</p></button>
+        <button href="#" onClick={ setDisableBounds }><p>disable bounds</p></button>
+        <button href="#" onClick={ setShowDebugInfo }><p>show location info</p></button>
+        <button href="#" onClick={ setUseFakeLocation }><p>use fake location</p></button>
+      </div>
 		</>
 	)
 	
