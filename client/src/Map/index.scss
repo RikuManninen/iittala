@@ -145,15 +145,18 @@ button:active {
   }
   & .leaflet-bar {
     & a {
-      font-weight: 100;
-      line-height: 26px;
+      color: transparent;
+      position: relative;
+      background-size: .75em;
       &:first-child {
         border-top-left-radius: 5px;
         border-top-right-radius: 5px;
+        background-image: url("./svg/plus.svg");
       }
       &:last-child {
         border-bottom-left-radius: 5px;
         border-bottom-right-radius: 5px;
+        background-image: url("./svg/minus.svg");
       }
     }
   }
