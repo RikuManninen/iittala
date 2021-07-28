@@ -27,7 +27,10 @@ button:active {
 }
 
 .leaflet-container {
-  height: calc(100vh - 63px - 2em);
+  height: calc(100% - 80px);
+  width: 100%;
+  position: absolute!important;
+  display: block;
 }
 
 .debug-text {
