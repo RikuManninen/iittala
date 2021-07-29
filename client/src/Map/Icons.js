@@ -42,6 +42,6 @@ export const iconCompass = L.icon({
 
 export const iconMarkerDraggable = L.icon({
 	iconUrl: markerDraggable,
-	iconSize: [52, 52],
-	iconAnchor: [26, 26],
+	iconSize: [64, 64],
+	iconAnchor: [32, 32],
 });
