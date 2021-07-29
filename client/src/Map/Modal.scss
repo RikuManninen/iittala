@@ -37,9 +37,12 @@
     height: calc(100% + 5em);
     margin: -4em -2em;
     & .react-quiz-container {
-      padding: 6em 1em 1em 1em;
+      padding: 6em 1em;
       box-sizing: border-box;
       background: #fff;
+      margin: 0;
+      width: 100%;
+      max-width: 100%;
     }
   }
 }
