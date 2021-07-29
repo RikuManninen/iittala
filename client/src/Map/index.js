@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { MapContainer, TileLayer, LayersControl, Rectangle, LayerGroup, MapConsumer } from "react-leaflet";
 import { LocateControl } from "./LocateControlComponent";
 import Markers from "./Markers";
@@ -14,28 +14,24 @@ import DevTools from "./DevTools";
 import FakeLocation from "./FakeLocation";
 
 const Map = (props) => {
-  const geolocation = useGeolocation()
+
   const compassAlpha = useCompass()
 
-  const [location, setLocation] = useState({
-    loaded: true,
-    coordinates: {
-      latitude: 0,
-      longitude: 0,
-      accuracy: 100,
-    },
-  })
-
   const activateDevTools = props.activateDevTools
+
   const [activateAll, setActivateAll] = useState(false)
   const [disableBounds, setDisableBounds] = useState(false)
   const [showDebugInfo, setShowDebugInfo] = useState(false)
-  const [useFakeLocation, setUseFakeLocation] = useState(true)
+  const [useFakeLocation, setUseFakeLocation] = useState(false)
 
-  const handleLocation = (fakeLocation) => {
-    setLocation(!useFakeLocation ? geolocation : fakeLocation)
-    console.log(location)
+  const [fakeLocation, setFakeLocation] = useState({})
+
+  const getFakeLocation = (fakeCoords) => {
+    setFakeLocation(fakeCoords)
   }
+
+  const geolocation = useGeolocation()
+  const location = useFakeLocation ? fakeLocation : geolocation
 
   const bounds = L.latLngBounds([[61.086739, 24.123656], [61.092388, 24.146800]])
 
@@ -91,13 +87,22 @@ const Map = (props) => {
 					</LayersControl.Overlay>
         </LayersControl>
 
-        <FakeLocation locationHandler={ handleLocation }/>
+        <FakeLocation locationHandler={ getFakeLocation } useFakeLocation={ useFakeLocation } />
         
-        {location.loaded && bounds.contains([location.coordinates.latitude, location.coordinates.longitude]) && <LocateControl coords={ [location.coordinates.latitude, location.coordinates.longitude] } />}
+        {location.loaded && bounds.contains([location.coordinates.latitude, location.coordinates.longitude]) && 
+          <LocateControl coords={ [location.coordinates.latitude, location.coordinates.longitude] } />
+        }
 
         {showDebugInfo && <LocationInfo location={ location } />}
 
-        {activateDevTools && <DevTools setActivateAll={ setActivateAll } setDisableBounds={ setDisableBounds } setShowDebugInfo={ setShowDebugInfo } setUseFakeLocation={ setUseFakeLocation } />}
+        {activateDevTools && 
+          <DevTools 
+            setActivateAll={ setActivateAll } 
+            setDisableBounds={ setDisableBounds } 
+            setShowDebugInfo={ setShowDebugInfo } 
+            setUseFakeLocation={ setUseFakeLocation } 
+          />
+        }
 
 			</MapContainer>
 
