@@ -1,3 +1,5 @@
+import './Score.scss'
+
 const Score = (props) => {
   return (
     <div className={'score-container'}>

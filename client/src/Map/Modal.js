@@ -5,6 +5,7 @@ import VideogameAssetIcon from '@material-ui/icons/VideogameAsset';
 import Ar from '../Ar'
 import { Redirect, BrowserRouter as Router } from 'react-router-dom';
 import Quizes from "../Quizes";
+import './Modal.scss';
 
 
 const Modal = (props) => {
