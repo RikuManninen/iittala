@@ -42,22 +42,6 @@
   color: #b9242e;
 }
 
-.react-tabs__tab--disabled {
-
-}
-
-.react-tabs__tab:focus {
-
-}
-
-.react-tabs__tab:focus:after {
-
-}
-
-.react-tabs__tab-panel {
-
-}
-
-.react-tabs__tab-panel--selected {
-
+.ReactModal__Body--open .react-tabs__tab-list {
+  visibility: hidden;
 }
