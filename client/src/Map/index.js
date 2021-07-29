@@ -63,6 +63,8 @@ const DraggableMarker = (props) => {
     </Marker>
   )
 }
+import LocationInfo from "./LocationInfo";
+import DevTools from "./DevTools";
 
 const Map = () => {
   const geolocation = useGeolocation()
@@ -145,16 +147,13 @@ const Map = () => {
         
         {location.loaded && bounds.contains([location.coordinates.latitude, location.coordinates.longitude]) && <LocateControl coords={ [location.coordinates.latitude, location.coordinates.longitude] } />}
 
-        {showDebugInfo && <DebugText location={ location } />}
+        {showDebugInfo && <LocationInfo location={ location } />}
+
+        <DevTools setActivateAll={ setActivateAll } setDisableBounds={ setDisableBounds } setShowDebugInfo={ setShowDebugInfo } setUseFakeLocation={ setUseFakeLocation } />
 
 			</MapContainer>
 
-      <div className="dev-tools">
-        <button href="#" onClick={ setActivateAll }><p>activate all markers</p></button>
-        <button href="#" onClick={ setDisableBounds }><p>disable bounds</p></button>
-        <button href="#" onClick={ setShowDebugInfo }><p>show location info</p></button>
-        <button href="#" onClick={ setUseFakeLocation }><p>use fake location</p></button>
-      </div>
+      
 		</>
 	)
 	

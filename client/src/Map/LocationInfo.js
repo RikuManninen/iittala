@@ -1,4 +1,4 @@
-const DebugText = (props) => {
+const LocationInfo = (props) => {
   const location = props.location
 
   return (
@@ -18,4 +18,4 @@ const DebugText = (props) => {
   )
 }
 
-export default DebugText
+export default LocationInfo
