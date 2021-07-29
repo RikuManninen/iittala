@@ -88,7 +88,13 @@ button:active {
   border-radius: 100%;
 }
 
+.leaflet-control-layers.leaflet-control {
+  display: none;
+}
 
+.dev-tools-active .leaflet-control-layers.leaflet-control {
+  display: block;
+}
 
 
 

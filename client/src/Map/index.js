@@ -13,7 +13,7 @@ import LocationInfo from "./LocationInfo";
 import DevTools from "./DevTools";
 import FakeLocation from "./FakeLocation";
 
-const Map = () => {
+const Map = (props) => {
   const geolocation = useGeolocation()
   const compassAlpha = useCompass()
 
@@ -26,6 +26,7 @@ const Map = () => {
     },
   })
 
+  const activateDevTools = props.activateDevTools
   const [activateAll, setActivateAll] = useState(false)
   const [disableBounds, setDisableBounds] = useState(false)
   const [showDebugInfo, setShowDebugInfo] = useState(false)
@@ -96,7 +97,7 @@ const Map = () => {
 
         {showDebugInfo && <LocationInfo location={ location } />}
 
-        <DevTools setActivateAll={ setActivateAll } setDisableBounds={ setDisableBounds } setShowDebugInfo={ setShowDebugInfo } setUseFakeLocation={ setUseFakeLocation } />
+        {activateDevTools && <DevTools setActivateAll={ setActivateAll } setDisableBounds={ setDisableBounds } setShowDebugInfo={ setShowDebugInfo } setUseFakeLocation={ setUseFakeLocation } />}
 
 			</MapContainer>
 
