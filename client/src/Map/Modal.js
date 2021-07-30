@@ -4,6 +4,9 @@ import ArrowBackIcon from '@material-ui/icons/ArrowBack';
 import VideogameAssetIcon from '@material-ui/icons/VideogameAsset';
 import Ar from '../Ar'
 import { Redirect, BrowserRouter as Router } from 'react-router-dom';
+import Quizes from "../Quizes";
+import './Modal.scss';
+
 
 const Modal = (props) => {
 
@@ -17,7 +20,8 @@ const Modal = (props) => {
   //markerId : game JSX
   const games = {
     125 : Ar(1),
-    275 : Ar(2)
+    275 : Ar(2),
+    205 : Quizes()
   }
 
 	const openGame = () => {

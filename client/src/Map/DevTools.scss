@@ -1,0 +1,64 @@
+.dev-tools {
+  z-index: 808;
+  position: absolute;
+  bottom: 10px;
+  display: flex;
+  width: calc(100% - 50px);
+  justify-content: space-between;
+  margin: 0 0 0 10px;
+  & button {
+    font-size: 8px;
+    background: #fff;
+    height: 32px;
+    border: 1px solid #aaa;
+    border-radius: 5px;
+    width: 100%;
+    margin-right: 10px;
+    padding: 0 5px;
+    & p {
+      position: relative;
+      margin: 0;
+      top: 0;
+      font-weight: 800;
+      @media (min-width: 768px) {
+        transform: scale(1.5);
+      }
+    }
+  }
+}
+
+.debug-text {
+  color:rgb(50, 50, 255);
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  font-weight: 700;
+  font-size: 1em;
+  line-height: 1em;
+  margin: .5em 0;
+  &-warning {
+    @extend .debug-text;
+    color: red;
+  }
+  &-container {
+    position: absolute;
+    z-index: 707;
+    left: 0;
+    bottom: 52px;
+    background: #fff;
+    width: calc(100% - 20px);
+    padding: .5em 1em;
+    box-sizing: border-box;
+    border-radius: 5px;
+    border: 1px solid #aaa;
+    margin: 0 10px;
+    font-size: .75em;
+  }
+  @at-root {
+    h1#{&} {
+      font-size: 1.2em;
+      color:rgb(10, 10, 158);
+    }
+  }
+}

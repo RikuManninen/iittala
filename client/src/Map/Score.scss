@@ -1,0 +1,20 @@
+.score-container {
+  background: #b9242e;
+  z-index: 500;
+  position: absolute;
+  display: block;
+  height: 63px;
+  width: 63px;
+  border-radius: 100%;
+  right: 10px;
+  top: 10px;
+  color: #fff;
+  font-size: 30px;
+  text-align: center;
+  line-height: 60px;
+  font-weight: 200;
+}
+
+.leaflet-top.leaflet-right {
+  top: 8em;
+}
